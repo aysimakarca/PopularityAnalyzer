@@ -79,7 +79,9 @@ def set_request_headers(profile: str, source: Path) -> int:
             raise FileNotFoundError(f"Request-header file not found: {source}")
         headers_raw = source.read_text(encoding="utf-8")
 
+    parsed_curl = False
     if headers_raw.lstrip().startswith("curl "):
+        parsed_curl = True
         tokens = shlex.split(headers_raw)
         extracted: list[str] = []
         index = 0
@@ -97,7 +99,7 @@ def set_request_headers(profile: str, source: Path) -> int:
         headers_raw = "\n".join(extracted)
 
     lowered_original = headers_raw.casefold()
-    if "cookie:" not in lowered_original or "authorization:" not in lowered_original:
+    if not parsed_curl and ("cookie:" not in lowered_original or "authorization:" not in lowered_original):
         # Chrome's request-header pane may copy names and values on alternating
         # lines. Stop before its optional "Decoded" client-data diagnostics.
         lines = [line.strip() for line in headers_raw.splitlines() if line.strip()]
@@ -124,12 +126,32 @@ def set_request_headers(profile: str, source: Path) -> int:
         for header in ("cookie", "authorization")
         if f"{header}:" not in lowered
     ]
+
+    destination = profile_auth_path(profile)
+    if missing == ["cookie"] and destination.exists():
+        # Chrome's Copy-as-cURL output sometimes omits Cookie for YouTube
+        # Music requests while still including Authorization. Reuse the
+        # profile's stored long-lived cookie, then let callers regenerate a
+        # fresh SAPISIDHASH from it. Do not print the cookie.
+        try:
+            existing = json.loads(destination.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            existing = {}
+        cookie = existing.get("cookie", "")
+        if cookie:
+            headers_raw = headers_raw.rstrip() + f"\ncookie: {cookie}\n"
+            lowered = headers_raw.casefold()
+            missing = [
+                header
+                for header in ("cookie", "authorization")
+                if f"{header}:" not in lowered
+            ]
+
     if missing:
         raise ValueError(
             "Copied request headers are missing required fields: " + ", ".join(missing)
         )
 
-    destination = profile_auth_path(profile)
     destination.parent.mkdir(parents=True, exist_ok=True)
     temporary = destination.with_name(".auth.pending.json")
     try:

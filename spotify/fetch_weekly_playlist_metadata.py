@@ -1,13 +1,12 @@
 """Fetch Spotify metadata and artist monthly listeners for weekly user playlists.
 
 Example:
-    python3 spotify/fetch_weekly_playlist_metadata.py \
-        --week Week4 \
-        --output-root /Users/akarcaal/Development/ReposMCT/PopularityAnalyzer/experiment_results/week4/spotify
+    python3 spotify/fetch_weekly_playlist_metadata.py 2 Week2_28July
 
-The script looks for playlists named Week4-User1 ... Week4-User10 by default,
-creates User1 ... User10 folders under the output root, and writes per-user
-CSV/JSON files plus combined CSV and summary files.
+The script looks for playlists named Week2_User1 ... Week2_User10 by default,
+creates User1 ... User10 folders under
+experiment_results/Week2_28July/Spotify, and writes per-user CSV/JSON files
+plus combined CSV and summary files.
 """
 
 from __future__ import annotations
@@ -77,15 +76,34 @@ FIELDNAMES = [
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
+        "week_x",
+        nargs="?",
+        help="Week number or prefix, e.g. 2 or Week2.",
+    )
+    parser.add_argument(
+        "experiment_folder",
+        nargs="?",
+        help="Experiment result folder name, e.g. Week2_28July.",
+    )
+    parser.add_argument(
         "--week",
-        required=True,
-        help="Week prefix used in playlist names, e.g. Week4.",
+        default="",
+        help="Week number or prefix used in playlist names, e.g. 2 or Week2.",
+    )
+    parser.add_argument(
+        "--experiment-folder",
+        dest="experiment_folder_flag",
+        default="",
+        help="Experiment result folder name under experiment_results, e.g. Week2_28July.",
     )
     parser.add_argument(
         "--output-root",
         type=Path,
-        required=True,
-        help="Folder where User1/User2/... output folders will be created.",
+        default=None,
+        help=(
+            "Folder where User1/User2/... output folders will be created. "
+            "Defaults to experiment_results/<experiment-folder>/Spotify."
+        ),
     )
     parser.add_argument("--config", type=Path, default=DEFAULT_CONFIG)
     parser.add_argument("--cache", type=Path, default=DEFAULT_CACHE)
@@ -95,7 +113,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--snapshot-label",
         default="",
-        help="Optional label stored in the output. Defaults to a slug from --week.",
+        help="Optional label stored in the output. Defaults to a slug from the experiment folder.",
     )
     parser.add_argument(
         "--no-json",
@@ -120,8 +138,17 @@ def slug(value: str) -> str:
     return cleaned or "spotify"
 
 
+def normalize_week(value: str) -> str:
+    cleaned = (value or "").strip()
+    if not cleaned:
+        raise RuntimeError("Provide a week number/prefix, e.g. 2 or Week2.")
+    if cleaned.isdigit():
+        return f"Week{cleaned}"
+    return cleaned
+
+
 def canonical_playlist_name(name: str) -> str:
-    return re.sub(r"\s+", "", name or "").casefold()
+    return re.sub(r"[^a-z0-9]+", "", (name or "").casefold())
 
 
 def user_from_name(name: str) -> str:
@@ -264,7 +291,7 @@ def resolve_playlists(
     missing = []
     duplicates = []
     for user_num in range(start_user, end_user + 1):
-        requested = f"{week}-User{user_num}"
+        requested = f"{week}_User{user_num}"
         matches = exact.get(requested, [])
         if not strict and not matches:
             matches = canonical.get(canonical_playlist_name(requested), [])
@@ -543,11 +570,21 @@ def main() -> int:
     if args.start_user > args.end_user:
         raise RuntimeError("--start-user cannot be greater than --end-user")
 
+    week = normalize_week(args.week or args.week_x or "")
+    experiment_folder = args.experiment_folder_flag or args.experiment_folder or ""
+    if not experiment_folder:
+        raise RuntimeError("Provide an experiment folder, e.g. Week2_28July.")
+    output_root = (
+        args.output_root.expanduser().resolve()
+        if args.output_root is not None
+        else (ROOT / "experiment_results" / experiment_folder / "Spotify")
+    )
+
     sp = create_spotify_client(args.config, args.cache)
     source_user = sp.current_user()
     resolved = resolve_playlists(
         all_user_playlists(sp),
-        args.week,
+        week,
         args.start_user,
         args.end_user,
         args.strict_playlist_names,
@@ -563,10 +600,10 @@ def main() -> int:
     if args.dry_run:
         return 0
 
-    snapshot_label = args.snapshot_label or slug(args.week).casefold()
+    snapshot_label = args.snapshot_label or slug(experiment_folder).casefold()
     captured_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
     fetcher = SpotifyMetadataFetcher(sp, args.market)
-    output_root = args.output_root.expanduser().resolve()
+    output_root = output_root.resolve()
     all_rows: list[dict[str, str]] = []
     summary_rows: list[dict[str, str]] = []
 
@@ -602,8 +639,8 @@ def main() -> int:
             time.sleep(0.03)
 
         user_dir = output_root / user_label
-        csv_path = user_dir / f"{slug(args.week)}_{user_label}_spotify_metadata.csv"
-        json_path = user_dir / f"{slug(args.week)}_{user_label}_spotify_metadata.json"
+        csv_path = user_dir / f"{slug(week)}_{user_label}_spotify_metadata.csv"
+        json_path = user_dir / f"{slug(week)}_{user_label}_spotify_metadata.json"
         write_csv(csv_path, rows, FIELDNAMES)
         if not args.no_json:
             write_json(json_path, rows)
@@ -622,7 +659,7 @@ def main() -> int:
         })
         print(f"Wrote {csv_path}")
 
-    week_slug = slug(args.week)
+    week_slug = slug(week)
     combined_path = output_root / f"{week_slug}_users{args.start_user}-{args.end_user}_spotify_metadata.csv"
     summary_path = output_root / f"{week_slug}_users{args.start_user}-{args.end_user}_fetch_summary.csv"
     write_csv(combined_path, all_rows, FIELDNAMES)

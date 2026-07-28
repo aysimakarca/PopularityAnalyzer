@@ -7,11 +7,15 @@ Credential values are never written to the result CSV or printed.
 Example:
     python3 youtube_music/fetch_discover_mix_snapshot.py \
       --profile user_02 \
-      --headers-source /path/to/pasted-text.txt \
-      --playlist-id 'https://music.youtube.com/playlist?list=...' \
-      --week-folder week1_13July \
-      --week-label Week1 \
-      --date-label 21.07
+      2 Week2_28July
+
+This writes by default to:
+    experiment_results/Week2_28July/Youtube/User2/Week2_User2_28.07.csv
+
+Each run refreshes the selected profile's auth.json from that profile's
+curl_out file before creating a short-lived authorization. You can still pass
+--headers-source to use a specific copied cURL file, and --playlist-id to
+select a specific Discover Mix playlist URL.
 """
 
 from __future__ import annotations
@@ -38,11 +42,13 @@ from youtube_auth_profiles import PROFILE_IDS, account_name, profile_auth_path
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
 DEFAULT_OUTPUT_ROOT = ROOT / "experiment_results"
-DEFAULT_WEEK_FOLDER = "week1_13July"
+DEFAULT_WEEK_FOLDER = "Week1_21July"
 DEFAULT_WEEK_LABEL = "Week1"
+DEFAULT_PLATFORM_FOLDER = "Youtube"
 DEFAULT_LIMIT = 30
 DEFAULT_PLAYLIST_NAME = "Discover Mix"
 CONFIG_PATH = HERE / "youtube_music_config.json"
+DEFAULT_CURL_OUT_NAME = "curl_out"
 
 # Frozen reference bands from the 83-song YouTube candidate pool captured on
 # 2026-06-29. Heavy Metal MCT was selected with the rank method: ten songs from
@@ -66,6 +72,8 @@ POPULARITY_COMPARISON_NOTE = (
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("week_x", nargs="?", help="Week number or prefix, e.g. 2 or Week2.")
+    parser.add_argument("experiment_folder", nargs="?", help="Experiment folder name, e.g. Week2_28July.")
     parser.add_argument("--profile", required=True, choices=PROFILE_IDS)
     parser.add_argument(
         "--headers-source",
@@ -76,11 +84,24 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--playlist-name", default=DEFAULT_PLAYLIST_NAME)
     parser.add_argument("--limit", type=int, default=DEFAULT_LIMIT)
     parser.add_argument("--output-root", type=Path, default=DEFAULT_OUTPUT_ROOT)
-    parser.add_argument("--week-folder", default=DEFAULT_WEEK_FOLDER)
-    parser.add_argument("--week-label", default=DEFAULT_WEEK_LABEL)
-    parser.add_argument("--date-label", default=datetime.now().strftime("%d.%m"))
+    parser.add_argument(
+        "--experiment-folder",
+        dest="experiment_folder_flag",
+        default="",
+        help="Experiment folder name under --output-root, e.g. Week2_28July.",
+    )
+    parser.add_argument("--week-folder", default=DEFAULT_WEEK_FOLDER, help="Backward-compatible alias for --experiment-folder.")
+    parser.add_argument("--week-label", default="", help="Output week label, e.g. Week2. Defaults from x or folder name.")
+    parser.add_argument("--week", default="", help="Week number or prefix, e.g. 2 or Week2. Overrides positional x.")
+    parser.add_argument("--date-label", default="", help="Filename date label, e.g. 28.07. Defaults from folder name or today.")
+    parser.add_argument("--platform-folder", default=DEFAULT_PLATFORM_FOLDER, help="Platform folder under the experiment folder.")
     parser.add_argument("--user-folder", help="Default is User1, User2, etc. from the profile number.")
     parser.add_argument("--output", type=Path, help="Explicit CSV output path; overrides folder/name defaults.")
+    parser.add_argument(
+        "--use-existing-auth",
+        action="store_true",
+        help="Skip the default curl_out import and use the current profile auth.json.",
+    )
     return parser.parse_args()
 
 
@@ -104,12 +125,108 @@ def profile_user_folder(profile: str) -> str:
     return f"User{int(match.group(1))}"
 
 
+def profile_curl_out_path(profile: str) -> Path:
+    return profile_auth_path(profile).parent / DEFAULT_CURL_OUT_NAME
+
+
+def refresh_profile_auth(profile: str, headers_source: Path | None, use_existing_auth: bool) -> Path | None:
+    """Install profile auth from curl_out unless explicitly told not to.
+
+    ``auth.json`` carries a generated Authorization header that can expire. The
+    saved ``curl_out`` contains the browser cookie, so importing it before each
+    run lets ``temporary_current_auth`` regenerate a fresh SAPISIDHASH value.
+    """
+    if headers_source:
+        set_request_headers(profile, headers_source)
+        return headers_source.expanduser().resolve()
+    if use_existing_auth:
+        return None
+
+    source = profile_curl_out_path(profile)
+    if not source.is_file():
+        raise FileNotFoundError(
+            f"No {DEFAULT_CURL_OUT_NAME} file found for {profile}: {source}. "
+            "Save a fresh Chrome Copy-as-cURL dump there, pass --headers-source, "
+            "or pass --use-existing-auth to use auth.json as-is."
+        )
+    set_request_headers(profile, source)
+    return source
+
+
+MONTHS = {
+    "january": "01",
+    "february": "02",
+    "march": "03",
+    "april": "04",
+    "may": "05",
+    "june": "06",
+    "july": "07",
+    "august": "08",
+    "september": "09",
+    "october": "10",
+    "november": "11",
+    "december": "12",
+}
+
+
+def normalize_week_label(value: str) -> str:
+    cleaned = (value or "").strip()
+    if not cleaned:
+        return ""
+    if cleaned.isdigit():
+        return f"Week{cleaned}"
+    return cleaned
+
+
+def infer_week_label_from_folder(folder: str) -> str:
+    match = re.search(r"week\s*[_-]?\s*(\d+)", folder or "", flags=re.IGNORECASE)
+    return f"Week{int(match.group(1))}" if match else ""
+
+
+def infer_date_label_from_folder(folder: str) -> str:
+    match = re.search(r"(?:^|[_-])(\d{1,2})([A-Za-z]+)(?:$|[_-])", folder or "")
+    if not match:
+        return ""
+    month = MONTHS.get(match.group(2).casefold())
+    if not month:
+        return ""
+    return f"{int(match.group(1)):02d}.{month}"
+
+
+def resolved_experiment_folder(args: argparse.Namespace) -> str:
+    return args.experiment_folder_flag or args.experiment_folder or args.week_folder
+
+
+def resolved_week_label(args: argparse.Namespace) -> str:
+    folder = resolved_experiment_folder(args)
+    return (
+        normalize_week_label(args.week)
+        or normalize_week_label(args.week_x or "")
+        or normalize_week_label(args.week_label)
+        or infer_week_label_from_folder(folder)
+        or DEFAULT_WEEK_LABEL
+    )
+
+
+def resolved_date_label(args: argparse.Namespace) -> str:
+    folder = resolved_experiment_folder(args)
+    return args.date_label or infer_date_label_from_folder(folder) or datetime.now().strftime("%d.%m")
+
+
 def output_path(args: argparse.Namespace) -> Path:
     if args.output:
         return args.output.expanduser().resolve()
-    folder = args.user_folder or profile_user_folder(args.profile)
-    filename = f"{args.week_label}_{folder}_{args.date_label}.csv"
-    return (args.output_root / args.week_folder / "youtube" / folder / filename).resolve()
+    user_folder = args.user_folder or profile_user_folder(args.profile)
+    week_label = resolved_week_label(args)
+    date_label = resolved_date_label(args)
+    filename = f"{week_label}_{user_folder}_{date_label}.csv"
+    return (
+        args.output_root
+        / resolved_experiment_folder(args)
+        / args.platform_folder
+        / user_folder
+        / filename
+    ).resolve()
 
 
 def temporary_current_auth(profile: str) -> tuple[Path, tempfile.TemporaryDirectory[str]]:
@@ -496,8 +613,11 @@ def main() -> int:
     args = parse_args()
     if args.limit != 30:
         raise ValueError("This research collector requires exactly --limit 30.")
-    if args.headers_source:
-        set_request_headers(args.profile, args.headers_source)
+    auth_refresh_source = refresh_profile_auth(
+        args.profile,
+        args.headers_source,
+        args.use_existing_auth,
+    )
     auth_path, temporary_directory = temporary_current_auth(args.profile)
     try:
         ytmusic = YTMusic(str(auth_path))
@@ -521,6 +641,7 @@ def main() -> int:
 
     print()
     print(f"Auth profile: {args.profile}")
+    print(f"Auth refreshed from: {auth_refresh_source or 'existing auth.json'}")
     print(f"Verified account: {verified_account}")
     print(f"Playlist: {playlist.get('title') or args.playlist_name}")
     print(f"Playlist ID: {playlist_id}")

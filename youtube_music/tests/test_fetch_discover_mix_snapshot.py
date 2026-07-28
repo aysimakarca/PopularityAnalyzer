@@ -5,6 +5,7 @@ import math
 from pathlib import Path
 import sys
 import tempfile
+from types import SimpleNamespace
 import unittest
 
 
@@ -12,6 +13,58 @@ YOUTUBE_MUSIC_DIR = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(YOUTUBE_MUSIC_DIR))
 
 import fetch_discover_mix_snapshot as snapshot  # noqa: E402
+
+
+class OutputPathTests(unittest.TestCase):
+    def test_positional_week_and_experiment_folder_use_new_tree(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            args = SimpleNamespace(
+                output=None,
+                output_root=Path(directory),
+                profile="user_02",
+                user_folder=None,
+                week_x="2",
+                week="",
+                week_label="",
+                experiment_folder="Week2_28July",
+                experiment_folder_flag="",
+                week_folder="Week1_21July",
+                date_label="",
+                platform_folder="Youtube",
+            )
+            self.assertEqual(
+                snapshot.output_path(args),
+                Path(directory).resolve()
+                / "Week2_28July"
+                / "Youtube"
+                / "User2"
+                / "Week2_User2_28.07.csv",
+            )
+
+    def test_flag_week_and_experiment_folder_use_new_tree(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            args = SimpleNamespace(
+                output=None,
+                output_root=Path(directory),
+                profile="user_10",
+                user_folder=None,
+                week_x=None,
+                week="3",
+                week_label="",
+                experiment_folder=None,
+                experiment_folder_flag="Week3_04August",
+                week_folder="Week1_21July",
+                date_label="",
+                platform_folder="Youtube",
+            )
+            self.assertEqual(
+                snapshot.output_path(args),
+                Path(directory).resolve()
+                / "Week3_04August"
+                / "Youtube"
+                / "User10"
+                / "Week3_User10_04.08.csv",
+            )
 
 
 class OriginalPoolBandTests(unittest.TestCase):
