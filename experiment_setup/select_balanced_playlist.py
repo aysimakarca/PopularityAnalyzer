@@ -17,6 +17,7 @@ from typing import Any
 
 
 HERE = Path(__file__).resolve().parent
+ROOT = HERE.parent
 TIERS = ("Low", "Middle", "High")
 PREFERRED = tuple(tuple(6 if row == col else 2 for col in range(3)) for row in range(3))
 
@@ -24,10 +25,10 @@ PREFERRED = tuple(tuple(6 if row == col else 2 for col in range(3)) for row in r
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
-        "--spotify", type=Path, default=HERE / "spotify" / "spotify_popularity_results.csv"
+        "--spotify", type=Path, default=ROOT / "spotify" / "spotify_popularity_results.csv"
     )
     parser.add_argument(
-        "--youtube", type=Path, default=HERE / "youtube_music" / "youtube_popularity_results.csv"
+        "--youtube", type=Path, default=ROOT / "youtube_music" / "youtube_popularity_results.csv"
     )
     parser.add_argument("--output", type=Path, default=HERE / "final_balanced_playlist.csv")
     parser.add_argument("--max-per-country", type=int, default=2)

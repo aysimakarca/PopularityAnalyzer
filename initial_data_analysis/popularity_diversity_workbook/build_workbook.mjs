@@ -52,7 +52,7 @@ const youtubeRows = parseCsv(
   await fs.readFile(path.join(root, "youtube_music/youtube_dual_popularity_results.csv"), "utf8"),
 );
 const selectedRows = parseCsv(
-  await fs.readFile(path.join(root, "final_rank_based_playlist.csv"), "utf8"),
+  await fs.readFile(path.join(root, "experiment_setup/final_rank_based_playlist.csv"), "utf8"),
 );
 
 const youtubeById = new Map(youtubeRows.map((row) => [row.candidate_id, row]));

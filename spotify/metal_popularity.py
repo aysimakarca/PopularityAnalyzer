@@ -34,7 +34,7 @@ from spotipy.oauth2 import SpotifyOAuth
 
 HERE = Path(__file__).resolve().parent
 AUTH_DIR = HERE / "auth"
-DEFAULT_CANDIDATES = HERE.parent / "metal_candidates.csv"
+DEFAULT_CANDIDATES = HERE.parent / "experiment_setup" / "metal_candidates.csv"
 DEFAULT_CONFIG = AUTH_DIR / "spotify_config.json"
 DEFAULT_CACHE = AUTH_DIR / ".spotify_cache"
 DEFAULT_COUNTS = HERE / "spotify_stream_counts.csv"

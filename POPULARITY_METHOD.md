@@ -12,7 +12,7 @@ tiers on Spotify and YouTube; this is a feature of the design.
 
 ## Files
 
-- `metal_candidates.csv`: 83 screened candidates from 38 countries.
+- `experiment_setup/metal_candidates.csv`: 83 screened candidates from 38 countries.
 - `spotify/metal_popularity.py`: resolves Spotify tracks and calculates
   Spotify-only percentiles from artist monthly listeners by default.
 - `spotify/spotify_artist_monthly_listeners.csv`: timestamped public
@@ -22,17 +22,17 @@ tiers on Spotify and YouTube; this is a feature of the design.
 - `youtube_music/metal_popularity.py`: resolves YouTube Music Art Tracks,
   collects view counts, and calculates YouTube-only percentiles.
 - `youtube_music/youtube_popularity_results.csv`: YouTube output.
-- `select_balanced_playlist.py`: selects a feasible 30-song cross-platform
+- `experiment_setup/select_balanced_playlist.py`: selects a feasible 30-song cross-platform
   table after both result files contain tiers.
-- `final_balanced_playlist.csv`: selected 30-song study playlist.
-- `build_dual_popularity_playlists.py`: recomputes both buffered rank tiers and
+- `experiment_setup/final_balanced_playlist.csv`: selected 30-song study playlist.
+- `experiment_setup/build_dual_popularity_playlists.py`: recomputes both buffered rank tiers and
   log-magnitude clusters, then optimizes comparable 30-song playlists.
 - `spotify/spotify_dual_popularity_results.csv`: all Spotify candidates with
   both rank and magnitude assignments.
 - `youtube_music/youtube_dual_popularity_results.csv`: all YouTube candidates
   with both rank and magnitude assignments.
-- `final_rank_based_playlist.csv`: final playlist under buffered percentiles.
-- `final_magnitude_based_playlist.csv`: final playlist under natural
+- `experiment_setup/final_rank_based_playlist.csv`: final playlist under buffered percentiles.
+- `experiment_setup/final_magnitude_based_playlist.csv`: final playlist under natural
   log-magnitude clusters.
 
 ## Popularity calculation
@@ -103,7 +103,7 @@ must be recalculated if the pool or measurement date changes.
 Generate both evaluations and playlists with:
 
 ```bash
-python3 build_dual_popularity_playlists.py
+python3 experiment_setup/build_dual_popularity_playlists.py
 ```
 
 The optimizer applies identical non-popularity controls to both methods:
@@ -215,10 +215,10 @@ engagement variables.
 After both tier files are complete:
 
 ```bash
-python3 select_balanced_playlist.py
+python3 experiment_setup/select_balanced_playlist.py
 ```
 
-The output is `final_balanced_playlist.csv`. The selector prefers no more than
+The output is `experiment_setup/final_balanced_playlist.csv`. The selector prefers no more than
 two songs from one country. If the observed 3x3 cells make that cap impossible,
 the affected output row is marked `country cap relaxed`.
 

@@ -28,7 +28,7 @@ from youtube_auth_profiles import PROFILE_IDS, resolve_auth_path
 
 
 HERE = Path(__file__).resolve().parent
-DEFAULT_CANDIDATES = HERE.parent / "metal_candidates.csv"
+DEFAULT_CANDIDATES = HERE.parent / "experiment_setup" / "metal_candidates.csv"
 DEFAULT_OUTPUT = HERE / "youtube_popularity_results.csv"
 YEAR_MIN = 2010
 YEAR_MAX = 2022

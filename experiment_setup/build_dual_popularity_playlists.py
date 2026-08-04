@@ -22,6 +22,7 @@ from select_balanced_playlist import TIERS
 
 
 HERE = Path(__file__).resolve().parent
+ROOT = HERE.parent
 # Closest feasible allocation to the preregistered diagonal/adjacent design
 # that also permits exact 5/5 heavy/power balance in every marginal platform
 # tier under both popularity definitions.
@@ -33,12 +34,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--spotify",
         type=Path,
-        default=HERE / "spotify" / "spotify_popularity_results.csv",
+        default=ROOT / "spotify" / "spotify_popularity_results.csv",
     )
     parser.add_argument(
         "--youtube",
         type=Path,
-        default=HERE / "youtube_music" / "youtube_popularity_results.csv",
+        default=ROOT / "youtube_music" / "youtube_popularity_results.csv",
     )
     parser.add_argument("--min-cluster-size", type=int, default=10)
     parser.add_argument("--max-per-country", type=int, default=2)
@@ -53,12 +54,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--spotify-evaluation",
         type=Path,
-        default=HERE / "spotify" / "spotify_dual_popularity_results.csv",
+        default=ROOT / "spotify" / "spotify_dual_popularity_results.csv",
     )
     parser.add_argument(
         "--youtube-evaluation",
         type=Path,
-        default=HERE / "youtube_music" / "youtube_dual_popularity_results.csv",
+        default=ROOT / "youtube_music" / "youtube_dual_popularity_results.csv",
     )
     return parser.parse_args()
 

@@ -19,7 +19,7 @@ from youtube_auth_profiles import PROFILE_IDS, resolve_auth_path
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
-DEFAULT_TRACKS = ROOT / "final_balanced_playlist.csv"
+DEFAULT_TRACKS = ROOT / "experiment_setup" / "final_balanced_playlist.csv"
 
 
 def parse_args() -> argparse.Namespace:

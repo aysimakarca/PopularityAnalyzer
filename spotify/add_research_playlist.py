@@ -20,7 +20,7 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
 AUTH_DIR = HERE / "auth"
 DEFAULT_CONFIG = AUTH_DIR / "spotify_config.json"
-DEFAULT_TRACKS = ROOT / "final_balanced_playlist.csv"
+DEFAULT_TRACKS = ROOT / "experiment_setup" / "final_balanced_playlist.csv"
 DEFAULT_CACHE = AUTH_DIR / ".spotify_playlist_write_cache"
 
 
