@@ -1,0 +1,160 @@
+{
+  "sequence": 2,
+  "endpoint": "browse",
+  "additional_params": "",
+  "started_at_utc": "2026-08-24T12:29:45+00:00",
+  "finished_at_utc": "2026-08-24T12:29:45+00:00",
+  "http_status_code": 200,
+  "http_reason": "OK",
+  "request_body_before_context": {
+    "browseId": "FEmusic_liked_playlists"
+  },
+  "request_body_after_call": {
+    "browseId": "FEmusic_liked_playlists",
+    "context": {
+      "client": {
+        "clientName": "WEB_REMIX",
+        "clientVersion": "1.20260824.01.00",
+        "hl": "en"
+      },
+      "user": {}
+    }
+  },
+  "response": {
+    "responseContext": {
+      "serviceTrackingParams": [
+        {
+          "service": "GFEEDBACK",
+          "params": [
+            {
+              "key": "browse_id",
+              "value": "FEmusic_liked_playlists"
+            },
+            {
+              "key": "browse_id_prefix",
+              "value": ""
+            },
+            {
+              "key": "logged_in",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "service": "CSI",
+          "params": [
+            {
+              "key": "c",
+              "value": "WEB_REMIX"
+            },
+            {
+              "key": "cver",
+              "value": "1.20260824.01.00"
+            },
+            {
+              "key": "yt_li",
+              "value": "0"
+            },
+            {
+              "key": "GetBrowsePlaylistsPage_rid",
+              "value": "0x748e1da4a1ea77f9"
+            }
+          ]
+        },
+        {
+          "service": "ECATCHER",
+          "params": [
+            {
+              "key": "client.version",
+              "value": "1.20000101"
+            },
+            {
+              "key": "client.name",
+              "value": "WEB_REMIX"
+            }
+          ]
+        }
+      ],
+      "responseId": "IhMI7vLIoaK5lgMVAkR6BR0LHg4E"
+    },
+    "contents": {
+      "singleColumnBrowseResultsRenderer": {
+        "tabs": [
+          {
+            "tabRenderer": {
+              "selected": true,
+              "content": {
+                "sectionListRenderer": {
+                  "contents": [
+                    {
+                      "itemSectionRenderer": {
+                        "contents": [
+                          {
+                            "messageRenderer": {
+                              "text": {
+                                "runs": [
+                                  {
+                                    "text": "Looking for what you’ve liked?"
+                                  }
+                                ]
+                              },
+                              "icon": {
+                                "iconType": "LIKE"
+                              },
+                              "trackingParams": "CAQQljsYACITCO7yyKGiuZYDFQJEegUdCx4OBA==",
+                              "button": {
+                                "buttonRenderer": {
+                                  "style": "STYLE_DEFAULT",
+                                  "isDisabled": false,
+                                  "text": {
+                                    "runs": [
+                                      {
+                                        "text": "Sign in"
+                                      }
+                                    ]
+                                  },
+                                  "navigationEndpoint": {
+                                    "clickTrackingParams": "CAUQ8FsiEwju8sihormWAxUCRHoFHQseDgTKAQS7PUhl",
+                                    "signInEndpoint": {
+                                      "hack": true
+                                    }
+                                  },
+                                  "trackingParams": "CAUQ8FsiEwju8sihormWAxUCRHoFHQseDgQ="
+                                }
+                              },
+                              "subtext": {
+                                "messageSubtextRenderer": {
+                                  "text": {
+                                    "runs": [
+                                      {
+                                        "text": "Sign in to listen to your liked tracks"
+                                      }
+                                    ]
+                                  }
+                                }
+                              },
+                              "style": {
+                                "value": "RENDER_STYLE_VERTICAL_CENTERED"
+                              }
+                            }
+                          }
+                        ],
+                        "trackingParams": "CAMQuy8YACITCO7yyKGiuZYDFQJEegUdCx4OBA=="
+                      }
+                    }
+                  ],
+                  "trackingParams": "CAIQui8iEwju8sihormWAxUCRHoFHQseDgQ="
+                }
+              },
+              "trackingParams": "CAEQ8JMBGAAiEwju8sihormWAxUCRHoFHQseDgQ="
+            }
+          }
+        ]
+      }
+    },
+    "trackingParams": "CAAQhGciEwju8sihormWAxUCRHoFHQseDgTKAQS7PUhl"
+  },
+  "raw_response_text": null,
+  "exception": null,
+  "capture_note": "Response captured inside _send_request immediately after the HTTP response, before ytmusicapi high-level parsing."
+}

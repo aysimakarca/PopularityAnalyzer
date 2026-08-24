@@ -26,6 +26,7 @@ from datetime import datetime, timezone
 import json
 import math
 import re
+import sys
 import tempfile
 import time
 from pathlib import Path
@@ -33,10 +34,12 @@ from typing import Any, Callable
 from urllib.parse import parse_qs, urlparse
 
 from ytmusicapi import YTMusic
+from ytmusicapi.exceptions import YTMusicServerError
+from ytmusicapi.ytmusic import YTM_BASE_API
 from ytmusicapi.auth.browser import get_authorization, sapisid_from_cookie
 
 from manage_youtube_profiles import set_request_headers
-from youtube_auth_profiles import PROFILE_IDS, account_name, profile_auth_path
+from youtube_auth_profiles import PROFILE_IDS, account_name, load_registry, profile_auth_path
 
 
 HERE = Path(__file__).resolve().parent
@@ -101,6 +104,19 @@ def parse_args() -> argparse.Namespace:
         "--use-existing-auth",
         action="store_true",
         help="Skip the default curl_out import and use the current profile auth.json.",
+    )
+    parser.add_argument(
+        "--api-response-log-dir",
+        type=Path,
+        help=(
+            "Folder for complete YouTube Music API response dumps. Defaults to "
+            "<output-folder>/api_responses/<output-stem>-<timestamp>."
+        ),
+    )
+    parser.add_argument(
+        "--no-api-response-log",
+        action="store_true",
+        help="Do not write YouTube Music API response dumps for this run.",
     )
     return parser.parse_args()
 
@@ -229,6 +245,143 @@ def output_path(args: argparse.Namespace) -> Path:
     ).resolve()
 
 
+SENSITIVE_KEY_TERMS = ("authorization", "cookie", "sapisid", "token", "password")
+
+
+def scrub_api_payload(value: Any) -> Any:
+    """Remove credential-like values while preserving response structure."""
+    if isinstance(value, dict):
+        cleaned: dict[str, Any] = {}
+        for key, child in value.items():
+            if any(term in str(key).casefold() for term in SENSITIVE_KEY_TERMS):
+                cleaned[str(key)] = "[redacted]"
+            else:
+                cleaned[str(key)] = scrub_api_payload(child)
+        return cleaned
+    if isinstance(value, list):
+        return [scrub_api_payload(child) for child in value]
+    return value
+
+
+def api_response_log_dir(args: argparse.Namespace, destination: Path) -> Path | None:
+    if args.no_api_response_log:
+        return None
+    if args.api_response_log_dir:
+        return args.api_response_log_dir.expanduser().resolve()
+    stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    return destination.parent / "api_responses" / f"{destination.stem}-{stamp}"
+
+
+def api_log_slug(value: str) -> str:
+    return re.sub(r"[^A-Za-z0-9_.-]+", "_", value).strip("_") or "request"
+
+
+def write_api_log_record(log_dir: Path, sequence: int, endpoint: str, record: dict[str, Any]) -> None:
+    log_dir.mkdir(parents=True, exist_ok=True)
+    safe_endpoint = api_log_slug(endpoint)
+    path = log_dir / f"{sequence:03d}_{safe_endpoint}.json"
+    pending = path.with_suffix(path.suffix + ".pending")
+    pending.write_text(json.dumps(record, ensure_ascii=False, indent=2, default=str), encoding="utf-8")
+    pending.replace(path)
+
+
+def write_api_run_metadata(log_dir: Path, args: argparse.Namespace, destination: Path) -> None:
+    log_dir.mkdir(parents=True, exist_ok=True)
+    metadata = {
+        "started_at_utc": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
+        "profile": args.profile,
+        "playlist_name": args.playlist_name,
+        "explicit_playlist_id": normalized_playlist_id(args.playlist_id),
+        "limit": args.limit,
+        "destination": str(destination),
+        "experiment_folder": resolved_experiment_folder(args),
+        "week_label": resolved_week_label(args),
+        "note": "API request and response payloads are written as numbered JSON files in this folder; credential-like values are redacted.",
+    }
+    (log_dir / "000_run_metadata.json").write_text(
+        json.dumps(metadata, ensure_ascii=False, indent=2, default=str),
+        encoding="utf-8",
+    )
+
+
+def install_api_response_logger(ytmusic: YTMusic, log_dir: Path) -> None:
+    """Persist every raw ytmusicapi API response before high-level parsing.
+
+    This mirrors ytmusicapi's request sender so the JSON response is written
+    immediately after the HTTP response arrives, before playlist/account parsers
+    can reshape it or fail on an unexpected layout. Auth headers and cookies are
+    not serialized.
+    """
+    log_dir.mkdir(parents=True, exist_ok=True)
+    state = {"sequence": 0}
+
+    def logged_send_request(endpoint: str, body: dict[str, Any], additionalParams: str = "") -> dict[str, Any]:
+        state["sequence"] += 1
+        sequence = state["sequence"]
+        started_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+        request_body_before = scrub_api_payload(body)
+        response_json: dict[str, Any] | None = None
+        raw_response_text: str | None = None
+        status_code: int | None = None
+        reason = ""
+        saved_response = False
+
+        def save_record(exception: dict[str, str] | None = None) -> None:
+            finished_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+            record = {
+                "sequence": sequence,
+                "endpoint": endpoint,
+                "additional_params": additionalParams,
+                "started_at_utc": started_at,
+                "finished_at_utc": finished_at,
+                "http_status_code": status_code,
+                "http_reason": reason,
+                "request_body_before_context": request_body_before,
+                "request_body_after_call": scrub_api_payload(body),
+                "response": scrub_api_payload(response_json) if response_json is not None else None,
+                "raw_response_text": raw_response_text if response_json is None else None,
+                "exception": exception,
+                "capture_note": (
+                    "Response captured inside _send_request immediately after the HTTP response, "
+                    "before ytmusicapi high-level parsing."
+                ),
+            }
+            write_api_log_record(log_dir, sequence, endpoint, record)
+
+        try:
+            body.update(ytmusic.context)
+            response = ytmusic._session.post(
+                YTM_BASE_API + endpoint + ytmusic.params + additionalParams,
+                json=body,
+                headers=ytmusic.headers,
+                proxies=ytmusic.proxies,
+                cookies=ytmusic.cookies,
+            )
+            status_code = response.status_code
+            reason = response.reason
+            raw_response_text = response.text
+            try:
+                response_json = json.loads(raw_response_text)
+            except Exception as error:
+                save_record({"type": type(error).__name__, "message": str(error)})
+                saved_response = True
+                raise
+
+            save_record()
+            saved_response = True
+            if response.status_code >= 400:
+                message = "Server returned HTTP " + str(response.status_code) + ": " + response.reason + ".\n"
+                error = response_json.get("error", {}).get("message")
+                raise YTMusicServerError(message + str(error))
+            return response_json
+        except Exception as error:
+            if not saved_response:
+                save_record({"type": type(error).__name__, "message": str(error)})
+            raise
+
+    ytmusic._send_request = logged_send_request
+
+
 def temporary_current_auth(profile: str) -> tuple[Path, tempfile.TemporaryDirectory[str]]:
     """Rebuild the short-lived SAPISIDHASH from the stored long-lived cookie."""
     source = profile_auth_path(profile)
@@ -247,17 +400,41 @@ def temporary_current_auth(profile: str) -> tuple[Path, tempfile.TemporaryDirect
     return path, directory
 
 
-def identify_account(ytmusic: YTMusic) -> str:
+def profile_registry_account_name(profile: str) -> str | None:
+    try:
+        entry = load_registry()["profiles"].get(profile) or {}
+    except Exception:
+        return None
+    for key in ("account_name", "label", "name"):
+        value = entry.get(key)
+        if value:
+            return str(value)
+    return None
+
+
+def identify_account(ytmusic: YTMusic, profile: str) -> str:
+    error_text = ""
     try:
         name = account_name(ytmusic.get_account_info())
-    except Exception:
+    except Exception as error:
         name = None
-    if not name:
-        raise RuntimeError(
-            "The profile is not authenticated. Import a fresh music.youtube.com Copy-as-cURL file "
-            "with --headers-source and run again."
+        error_text = str(error)
+    if name:
+        return name
+
+    fallback = profile_registry_account_name(profile)
+    if fallback:
+        note = f" Account lookup error: {error_text}" if error_text else ""
+        print(
+            f"Could not read the YouTube Music account menu for {profile}; using registry account label: {fallback}.{note}",
+            file=sys.stderr,
         )
-    return name
+        return fallback
+
+    raise RuntimeError(
+        "The profile is not authenticated. Import a fresh music.youtube.com Copy-as-cURL file "
+        "with --headers-source and run again."
+    )
 
 
 def title_of(item: dict[str, Any]) -> str:
@@ -290,12 +467,60 @@ def configured_playlist_id(profile: str) -> str | None:
     if not CONFIG_PATH.is_file():
         return None
     config = json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
-    if config.get("profile") != profile:
+    if config.get("profile") == profile:
+        return normalized_playlist_id(config.get("playlist_id"))
+    profile_map = config.get("playlist_ids_by_profile") or config.get("discover_mix_playlist_ids") or {}
+    if isinstance(profile_map, dict):
+        return normalized_playlist_id(profile_map.get(profile))
+    return None
+
+
+def saved_snapshot_playlist_id(profile: str, playlist_name: str, results_root: Path) -> str | None:
+    """Reuse the latest saved playlist ID for this profile's UserN folder."""
+    try:
+        user_folder = profile_user_folder(profile)
+    except ValueError:
         return None
-    return normalized_playlist_id(config.get("playlist_id"))
+    candidates: list[tuple[int, float, str, Path]] = []
+    for week_dir in results_root.glob("Week*"):
+        if not week_dir.is_dir():
+            continue
+        week_number = parse_week_number(week_dir.name)
+        for platform_name in ("Youtube", "youtube"):
+            user_dir = week_dir / platform_name / user_folder
+            if not user_dir.is_dir():
+                continue
+            for csv_path in user_dir.glob("*.csv"):
+                try:
+                    with csv_path.open(newline="", encoding="utf-8-sig") as handle:
+                        first = next(csv.DictReader(handle), None)
+                except (OSError, StopIteration, csv.Error):
+                    continue
+                if not first:
+                    continue
+                title = first.get("playlist_name", "")
+                playlist_id = normalized_playlist_id(first.get("playlist_id"))
+                if title.casefold() != playlist_name.casefold() or not playlist_id:
+                    continue
+                if first.get("auth_profile") not in ("", profile):
+                    continue
+                try:
+                    modified = csv_path.stat().st_mtime
+                except OSError:
+                    modified = 0.0
+                candidates.append((week_number, modified, playlist_id, csv_path))
+    if not candidates:
+        return None
+    candidates.sort(key=lambda item: (item[0], item[1]))
+    return candidates[-1][2]
 
 
-def find_discover_mix(ytmusic: YTMusic, profile: str, playlist_name: str) -> str:
+def parse_week_number(value: str) -> int:
+    match = re.search(r"week\s*[_-]?\s*(\d+)", value or "", flags=re.IGNORECASE)
+    return int(match.group(1)) if match else 0
+
+
+def find_discover_mix(ytmusic: YTMusic, profile: str, playlist_name: str, results_root: Path) -> str:
     errors: list[str] = []
     try:
         library = ytmusic.get_library_playlists(limit=None)
@@ -327,6 +552,13 @@ def find_discover_mix(ytmusic: YTMusic, profile: str, playlist_name: str) -> str
     configured = configured_playlist_id(profile)
     if configured:
         return configured
+    saved = saved_snapshot_playlist_id(profile, playlist_name, results_root)
+    if saved:
+        print(
+            f'Using previously saved "{playlist_name}" playlist ID for {profile}: {saved}',
+            file=sys.stderr,
+        )
+        return saved
     note = "; ".join(errors)
     raise RuntimeError(
         f'Could not locate "{playlist_name}" for {profile}. Pass --playlist-id with its playlist URL or ID.'
@@ -466,7 +698,13 @@ def collect(
     captured_at: str,
 ) -> tuple[dict[str, Any], list[dict[str, Any]]]:
     playlist = ytmusic.get_playlist(playlist_id, limit=limit)
-    tracks = (playlist.get("tracks") or [])[:limit]
+    all_tracks = playlist.get("tracks") or []
+    api_track_count = len(all_tracks)
+    tracks = all_tracks[:limit]
+    playlist["tracks"] = tracks
+    playlist["track_count_returned_by_api"] = api_track_count
+    playlist["track_count_used_by_collector"] = len(tracks)
+    playlist["track_limit_requested"] = limit
     if len(tracks) != limit:
         raise RuntimeError(f"Expected {limit} Discover Mix tracks, received {len(tracks)}.")
     if any(not track.get("videoId") for track in tracks):
@@ -520,6 +758,10 @@ def collect(
             "playlist_url": f"https://music.youtube.com/playlist?list={playlist_id}",
             "playlist_author": json.dumps(playlist.get("author"), ensure_ascii=False) if isinstance(playlist.get("author"), (dict, list)) else playlist.get("author", ""),
             "playlist_track_count_reported": playlist.get("trackCount", ""),
+            "playlist_track_count_returned_by_api": playlist.get("track_count_returned_by_api", ""),
+            "playlist_track_count_used_by_collector": playlist.get("track_count_used_by_collector", ""),
+            "playlist_track_limit_requested": playlist.get("track_limit_requested", ""),
+            "playlist_track_limit_note": "Collector records only the first 30 tracks. YouTube Music's browse response may still include more tracks in the raw API payload.",
             "playlist_duration": playlist.get("duration", ""),
             "playlist_duration_seconds": playlist.get("duration_seconds", ""),
             "playlist_description": playlist.get("description", ""),
@@ -528,8 +770,8 @@ def collect(
             "youtube_music_url": f"https://music.youtube.com/watch?v={video_id}",
             "youtube_url": f"https://www.youtube.com/watch?v={video_id}",
             "title": track.get("title") or video.get("title", ""),
-            "artists": "; ".join(item.get("name", "") for item in artist_refs) or video.get("author", ""),
-            "artist_ids": ";".join(item.get("id", "") for item in artist_refs),
+            "artists": "; ".join(item.get("name") or "" for item in artist_refs) or video.get("author", ""),
+            "artist_ids": ";".join(item.get("id") or "" for item in artist_refs),
             "artist_details_json": json.dumps(artist_objects, ensure_ascii=False),
             "primary_artist_id": primary.get("id", ""),
             "primary_artist_name": primary.get("name", ""),
@@ -549,7 +791,7 @@ def collect(
             "album_duration": album.get("duration", ""),
             "album_duration_seconds": album.get("duration_seconds", ""),
             "album_audio_playlist_id": album.get("audioPlaylistId", ""),
-            "album_artists": "; ".join(item.get("name", "") for item in album.get("artists") or []),
+            "album_artists": "; ".join(item.get("name") or "" for item in album.get("artists") or []),
             "album_description": album.get("description", ""),
             "duration": track.get("duration", ""),
             "duration_seconds": int_or_none(track.get("duration_seconds") or video.get("lengthSeconds")) or "",
@@ -613,6 +855,8 @@ def main() -> int:
     args = parse_args()
     if args.limit != 30:
         raise ValueError("This research collector requires exactly --limit 30.")
+    destination = output_path(args)
+    response_log_dir = api_response_log_dir(args, destination)
     auth_refresh_source = refresh_profile_auth(
         args.profile,
         args.headers_source,
@@ -621,9 +865,15 @@ def main() -> int:
     auth_path, temporary_directory = temporary_current_auth(args.profile)
     try:
         ytmusic = YTMusic(str(auth_path))
-        verified_account = identify_account(ytmusic)
+        if response_log_dir is not None:
+            write_api_run_metadata(response_log_dir, args, destination)
+            install_api_response_logger(ytmusic, response_log_dir)
+        verified_account = identify_account(ytmusic, args.profile)
         playlist_id = normalized_playlist_id(args.playlist_id) or find_discover_mix(
-            ytmusic, args.profile, args.playlist_name
+            ytmusic,
+            args.profile,
+            args.playlist_name,
+            args.output_root.expanduser().resolve(),
         )
         captured_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
         playlist, rows = collect(
@@ -634,8 +884,11 @@ def main() -> int:
             args.limit,
             captured_at,
         )
-        destination = output_path(args)
         write_csv(destination, rows)
+    except Exception:
+        if response_log_dir is not None:
+            print(f"API response log: {response_log_dir}", file=sys.stderr)
+        raise
     finally:
         temporary_directory.cleanup()
 
@@ -649,6 +902,8 @@ def main() -> int:
     print(f"Rows with views: {sum(row['view_count'] != '' for row in rows)}/{len(rows)}")
     print(f"Rows with artist subscribers: {sum(row['artist_subscribers_display'] != '' for row in rows)}/{len(rows)}")
     print(f"Output: {destination}")
+    if response_log_dir is not None:
+        print(f"API response log: {response_log_dir}")
     return 0
 
 

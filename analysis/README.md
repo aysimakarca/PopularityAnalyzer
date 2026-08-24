@@ -1,5 +1,41 @@
 # Popularity Bias Plots
 
+## Weekly distributions against the original playlist
+
+Run the platform-specific weekly distribution analysis with a lower-case
+platform name:
+
+```bash
+python3 analysis/plot_weekly_popularity_distributions.py spotify
+python3 analysis/plot_weekly_popularity_distributions.py youtube
+```
+
+Week1 and Week2 recommendations are excluded by default. Include them with:
+
+```bash
+python3 analysis/plot_weekly_popularity_distributions.py spotify --include-first-two-weeks
+```
+
+Select one user so that the exported data and plot contain only that user's
+weekly playlists (plus the original playlist reference):
+
+```bash
+python3 analysis/plot_weekly_popularity_distributions.py youtube --user 4
+```
+
+Outputs are kept separate under
+`initial_data_analysis/<platform>/popularity_distributions/`. Each run writes
+normalized track data, playlist-level comparison statistics, run metadata, and
+one ECDF plus box/strip distribution figure per included user. Every figure
+includes the platform's captured `original_playlist_popularity.csv`.
+
+The Spotify analysis uses primary-artist monthly listeners. The YouTube
+analysis uses cumulative views of the exact recommended video. Both raw counts
+and log-scaled visualizations are retained; the platforms are not combined in
+one distribution because the constructs differ.
+
+## Final-balanced baseline analysis
+
 Regenerate standardized popularity tables and plots with:
 
 ```bash

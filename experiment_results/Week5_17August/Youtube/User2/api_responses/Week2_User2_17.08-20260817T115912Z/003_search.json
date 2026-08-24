@@ -1,0 +1,146 @@
+{
+  "sequence": 3,
+  "endpoint": "search",
+  "additional_params": "",
+  "started_at_utc": "2026-08-17T11:59:12+00:00",
+  "finished_at_utc": "2026-08-17T11:59:13+00:00",
+  "request_body_before_context": {
+    "query": "Discover Mix",
+    "params": "EgWKAQIoAWoKEAUQCRADEAoYBA%3D%3D"
+  },
+  "request_body_after_call": {
+    "query": "Discover Mix",
+    "params": "EgWKAQIoAWoKEAUQCRADEAoYBA%3D%3D",
+    "context": {
+      "client": {
+        "clientName": "WEB_REMIX",
+        "clientVersion": "1.20260817.01.00",
+        "hl": "en"
+      },
+      "user": {}
+    }
+  },
+  "response": {
+    "responseContext": {
+      "serviceTrackingParams": [
+        {
+          "service": "CSI",
+          "params": [
+            {
+              "key": "c",
+              "value": "WEB_REMIX"
+            },
+            {
+              "key": "cver",
+              "value": "1.20260817.01.00"
+            },
+            {
+              "key": "yt_li",
+              "value": "1"
+            },
+            {
+              "key": "GetSearch_rid",
+              "value": "0x41656847de7f3dcc"
+            }
+          ]
+        },
+        {
+          "service": "GFEEDBACK",
+          "params": [
+            {
+              "key": "logged_in",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "service": "ECATCHER",
+          "params": [
+            {
+              "key": "client.version",
+              "value": "1.20000101"
+            },
+            {
+              "key": "client.name",
+              "value": "WEB_REMIX"
+            }
+          ]
+        }
+      ],
+      "responseId": "IhMIx6rHsM6nlgMVH0R6BR1joRvn"
+    },
+    "contents": {
+      "tabbedSearchResultsRenderer": {
+        "tabs": [
+          {
+            "tabRenderer": {
+              "endpoint": {
+                "clickTrackingParams": "CAUQ8JMBGAAiEwjHqsewzqeWAxUfRHoFHWOhG-fKAQQV-wOQ",
+                "searchEndpoint": {
+                  "query": "Discover Mix",
+                  "params": "agIYAQ%3D%3D"
+                }
+              },
+              "title": "YT Music",
+              "selected": false,
+              "content": {
+                "sectionListRenderer": {
+                  "continuations": [
+                    {
+                      "reloadContinuationData": {
+                        "continuation": "EhwSDERpc2NvdmVyIE1peBoMYWdJWUFRJTNEJTNE",
+                        "clickTrackingParams": "CAcQxqYCIhMIx6rHsM6nlgMVH0R6BR1joRvnygEEFfsDkA=="
+                      }
+                    }
+                  ],
+                  "trackingParams": "CAYQui8iEwjHqsewzqeWAxUfRHoFHWOhG-c="
+                }
+              },
+              "tabIdentifier": "music_search_catalog",
+              "trackingParams": "CAUQ8JMBGAAiEwjHqsewzqeWAxUfRHoFHWOhG-c="
+            }
+          },
+          {
+            "tabRenderer": {
+              "title": "Library",
+              "selected": true,
+              "content": {
+                "sectionListRenderer": {
+                  "contents": [
+                    {
+                      "itemSectionRenderer": {
+                        "contents": [
+                          {
+                            "messageRenderer": {
+                              "text": {
+                                "runs": [
+                                  {
+                                    "text": "No results found"
+                                  }
+                                ]
+                              },
+                              "icon": {
+                                "iconType": "SEARCH"
+                              },
+                              "trackingParams": "CAQQ-pUBGAAiEwjHqsewzqeWAxUfRHoFHWOhG-c="
+                            }
+                          }
+                        ],
+                        "trackingParams": "CAMQuy8YACITCMeqx7DOp5YDFR9EegUdY6Eb5w=="
+                      }
+                    }
+                  ],
+                  "trackingParams": "CAIQui8iEwjHqsewzqeWAxUfRHoFHWOhG-c="
+                }
+              },
+              "tabIdentifier": "music_search_library",
+              "trackingParams": "CAEQ8JMBGAEiEwjHqsewzqeWAxUfRHoFHWOhG-c="
+            }
+          }
+        ]
+      }
+    },
+    "trackingParams": "CAAQvGkiEwjHqsewzqeWAxUfRHoFHWOhG-fKAQQV-wOQ"
+  },
+  "exception": null
+}

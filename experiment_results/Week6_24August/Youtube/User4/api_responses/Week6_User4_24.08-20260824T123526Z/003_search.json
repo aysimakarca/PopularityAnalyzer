@@ -1,0 +1,42 @@
+{
+  "sequence": 3,
+  "endpoint": "search",
+  "additional_params": "",
+  "started_at_utc": "2026-08-24T12:35:27+00:00",
+  "finished_at_utc": "2026-08-24T12:35:27+00:00",
+  "http_status_code": 401,
+  "http_reason": "Unauthorized",
+  "request_body_before_context": {
+    "query": "Discover Mix",
+    "params": "EgWKAQIoAWoKEAUQCRADEAoYBA%3D%3D"
+  },
+  "request_body_after_call": {
+    "query": "Discover Mix",
+    "params": "EgWKAQIoAWoKEAUQCRADEAoYBA%3D%3D",
+    "context": {
+      "client": {
+        "clientName": "WEB_REMIX",
+        "clientVersion": "1.20260824.01.00",
+        "hl": "en"
+      },
+      "user": {}
+    }
+  },
+  "response": {
+    "error": {
+      "code": 401,
+      "message": "Request is missing required authentication credential. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.",
+      "errors": [
+        {
+          "message": "Request is missing required authentication credential. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.",
+          "domain": "global",
+          "reason": "unauthorized"
+        }
+      ],
+      "status": "UNAUTHENTICATED"
+    }
+  },
+  "raw_response_text": null,
+  "exception": null,
+  "capture_note": "Response captured inside _send_request immediately after the HTTP response, before ytmusicapi high-level parsing."
+}

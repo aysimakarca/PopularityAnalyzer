@@ -1,0 +1,94 @@
+{
+  "sequence": 6,
+  "endpoint": "browse",
+  "additional_params": "",
+  "started_at_utc": "2026-08-24T12:29:46+00:00",
+  "finished_at_utc": "2026-08-24T12:29:46+00:00",
+  "http_status_code": 200,
+  "http_reason": "OK",
+  "request_body_before_context": {
+    "browseId": "VLRDTMAK5uy_n_5IN6hzAOwdCnM8D8rzrs3vDl12UcZpA"
+  },
+  "request_body_after_call": {
+    "browseId": "VLRDTMAK5uy_n_5IN6hzAOwdCnM8D8rzrs3vDl12UcZpA",
+    "context": {
+      "client": {
+        "clientName": "WEB_REMIX",
+        "clientVersion": "1.20260824.01.00",
+        "hl": "en"
+      },
+      "user": {}
+    }
+  },
+  "response": {
+    "responseContext": {
+      "serviceTrackingParams": [
+        {
+          "service": "GFEEDBACK",
+          "params": [
+            {
+              "key": "browse_id",
+              "value": "VLRDTMAK5uy_n_5IN6hzAOwdCnM8D8rzrs3vDl12UcZpA"
+            },
+            {
+              "key": "browse_id_prefix",
+              "value": ""
+            },
+            {
+              "key": "has_unlimited_entitlement",
+              "value": "False"
+            },
+            {
+              "key": "logged_in",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "service": "CSI",
+          "params": [
+            {
+              "key": "c",
+              "value": "WEB_REMIX"
+            },
+            {
+              "key": "cver",
+              "value": "1.20260824.01.00"
+            },
+            {
+              "key": "yt_li",
+              "value": "0"
+            },
+            {
+              "key": "GetBrowsePlaylistDetailPage_rid",
+              "value": "0xb4710821a5549214"
+            }
+          ]
+        },
+        {
+          "service": "ECATCHER",
+          "params": [
+            {
+              "key": "client.version",
+              "value": "1.20000101"
+            },
+            {
+              "key": "client.name",
+              "value": "WEB_REMIX"
+            }
+          ]
+        }
+      ],
+      "responseId": "IhMIhJiAoqK5lgMV12l6BR08zRIf"
+    },
+    "trackingParams": "CAAQhGciEwiEmICiormWAxXXaXoFHTzNEh_KAQS7PUhl",
+    "microformat": {
+      "microformatDataRenderer": {
+        "noindex": true
+      }
+    }
+  },
+  "raw_response_text": null,
+  "exception": null,
+  "capture_note": "Response captured inside _send_request immediately after the HTTP response, before ytmusicapi high-level parsing."
+}
