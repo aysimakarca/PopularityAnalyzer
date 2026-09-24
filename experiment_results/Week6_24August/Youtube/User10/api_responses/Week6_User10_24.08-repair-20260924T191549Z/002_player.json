@@ -1,0 +1,2855 @@
+{
+  "sequence": 2,
+  "endpoint": "player",
+  "additional_params": "",
+  "started_at_utc": "2026-09-24T19:15:49+00:00",
+  "finished_at_utc": "2026-09-24T19:15:49+00:00",
+  "http_status_code": 200,
+  "http_reason": "OK",
+  "request_body_before_context": {
+    "playbackContext": {
+      "contentPlaybackContext": {
+        "signatureTimestamp": 20719
+      }
+    },
+    "video_id": "0qanF-91aJo"
+  },
+  "request_body_after_call": {
+    "playbackContext": {
+      "contentPlaybackContext": {
+        "signatureTimestamp": 20719
+      }
+    },
+    "video_id": "0qanF-91aJo",
+    "context": {
+      "client": {
+        "clientName": "WEB_REMIX",
+        "clientVersion": "1.20260924.01.00",
+        "hl": "en"
+      },
+      "user": {}
+    }
+  },
+  "response": {
+    "responseContext": {
+      "serviceTrackingParams": [
+        {
+          "service": "GFEEDBACK",
+          "params": [
+            {
+              "key": "is_viewed_live",
+              "value": "False"
+            },
+            {
+              "key": "ipcc",
+              "value": "0"
+            },
+            {
+              "key": "is_alc_surface",
+              "value": "false"
+            },
+            {
+              "key": "wh_paused",
+              "value": "0"
+            },
+            {
+              "key": "logged_in",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "service": "CSI",
+          "params": [
+            {
+              "key": "yt_ad",
+              "value": "1"
+            },
+            {
+              "key": "c",
+              "value": "WEB_REMIX"
+            },
+            {
+              "key": "cver",
+              "value": "1.20260924.01.00"
+            },
+            {
+              "key": "yt_li",
+              "value": "1"
+            },
+            {
+              "key": "GetPlayer_rid",
+              "value": "0x6ed63ddf48cefb38"
+            }
+          ]
+        },
+        {
+          "service": "ECATCHER",
+          "params": [
+            {
+              "key": "client.version",
+              "value": "1.20000101"
+            },
+            {
+              "key": "client.name",
+              "value": "WEB_REMIX"
+            }
+          ]
+        }
+      ],
+      "maxAgeSeconds": 0,
+      "innertubeTokenJar": "[redacted]",
+      "responseId": "IhMImb_Q6_aHlwMVO4P0Bx3kvwZq"
+    },
+    "playabilityStatus": {
+      "status": "OK",
+      "playableInEmbed": true,
+      "audioOnlyPlayability": {
+        "audioOnlyPlayabilityRenderer": {
+          "trackingParams": "CAoQx2kiEwiZv9Dr9oeXAxU7g_QHHeS_Bmo=",
+          "audioOnlyAvailability": "FEATURE_AVAILABILITY_ALLOWED"
+        }
+      },
+      "miniplayer": {
+        "miniplayerRenderer": {
+          "playbackMode": "PLAYBACK_MODE_ALLOW"
+        }
+      },
+      "contextParams": "Q0FFU0FnZ0I=",
+      "paygatedQualitiesMetadata": {
+        "qualityDetails": [
+          {
+            "key": "1080p",
+            "value": {
+              "paygatedIndicatorText": "Super resolution",
+              "trackingParams": "CAkQs8cJIhMImb_Q6_aHlwMVO4P0Bx3kvwZq"
+            }
+          },
+          {
+            "key": "720p",
+            "value": {
+              "paygatedIndicatorText": "Super resolution",
+              "trackingParams": "CAgQs8cJIhMImb_Q6_aHlwMVO4P0Bx3kvwZq"
+            }
+          }
+        ]
+      }
+    },
+    "streamingData": {
+      "expiresInSeconds": "21540",
+      "formats": [
+        {
+          "itag": 18,
+          "mimeType": "video/mp4; codecs=\"avc1.42001E, mp4a.40.2\"",
+          "bitrate": 582549,
+          "width": 640,
+          "height": 360,
+          "lastModified": "1776511592037399",
+          "quality": "medium",
+          "fps": 30,
+          "qualityLabel": "360p",
+          "projectionType": "RECTANGULAR",
+          "audioQuality": "AUDIO_QUALITY_LOW",
+          "approxDurationMs": "171061",
+          "audioSampleRate": "44100",
+          "audioChannels": 2,
+          "signatureCipher": "s=%3Ds9Y_jqELqWlXyDWnizb-knWALQNb9QP7F-o284w_x98AEiAPOSpS_5Hz3y3Qxk6OAAsgFskX0a6JRuy01wFCDVorDJAhIgRwYJ2s0EL0EL&sp=sig&url=https://rr1---sn-8xouxav-vnad.googlevideo.com/videoplayback%3Fexpire%3D1790298949%26ei%3D5Xa1atm4EbuG0u8P5P-a0AY%26ip%3D193.69.229.85%26id%3Do-APCOObjvzif2yoNIMASppL8f3zcR1J_4CjQGE0_p0CnI%26itag%3D18%26source%3Dyoutube%26requiressl%3Dyes%26xpc%3DEgVo2aDSNQ%253D%253D%26cps%3D1051%26met%3D1790277349%252C%26mh%3DHF%26mm%3D18%252C29%26mn%3Dsn-8xouxav-vnad%252Csn-aj5go5-53%26ms%3Daub%252Crdu%26mv%3Dm%26mvi%3D1%26pl%3D16%26rms%3Daub%252Caub%26ctier%3DA%26pfa%3D5%26initcwndbps%3D3540000%26hightc%3Dyes%26siu%3D1%26bui%3DAWzQHwqJ-vskUmtnJOslJHJZ8ctpBsEYLtWXUjuJvuTuaKYtmgOyNSq3dZpvp4Vpo4blQCzKLg%26spc%3DI-rgIWORckmt8jtrnmoa_cdUWpLZaicvxlvDu8Zg3rdArczRU3Dj-kf0SOQYEjVBRQ%26vprv%3D1%26svpuc%3D1%26mime%3Dvideo%252Fmp4%26ns%3DVyYNRJVSi3WdjKuk3144l2kY%26rqh%3D1%26cnr%3D14%26ratebypass%3Dyes%26dur%3D171.061%26lmt%3D1776511592037399%26mt%3D1790276994%26fvip%3D1%26fexp%3D51565116%252C52178456%26c%3DWEB_REMIX%26sefc%3D1%26txp%3D5538534%26n%3DClZsSBev59584E5%26sparams%3Dexpire%252Cei%252Cip%252Cid%252Citag%252Csource%252Crequiressl%252Cxpc%252Cctier%252Cpfa%252Chightc%252Csiu%252Cbui%252Cspc%252Cvprv%252Csvpuc%252Cmime%252Cns%252Crqh%252Ccnr%252Cratebypass%252Cdur%252Clmt%26lsparams%3Dcps%252Cmet%252Cmh%252Cmm%252Cmn%252Cms%252Cmv%252Cmvi%252Cpl%252Crms%252Cinitcwndbps%26lsig%3DAPaTxxMwRQIgO88GgIsLItemqSfAB4eDPimdKe13bX965SM2IMq667MCIQDzlo4kEUlxB7MWB6ff0F4P--xl1awkGDLKsQF6Hw-HfA%253D%253D",
+          "qualityOrdinal": "QUALITY_ORDINAL_360P"
+        }
+      ],
+      "adaptiveFormats": [
+        {
+          "itag": 248,
+          "mimeType": "video/webm; codecs=\"vp9\"",
+          "bitrate": 2051756,
+          "width": 1920,
+          "height": 1080,
+          "initRange": {
+            "start": "0",
+            "end": "219"
+          },
+          "indexRange": {
+            "start": "220",
+            "end": "806"
+          },
+          "lastModified": "1769984528054797",
+          "contentLength": "34618606",
+          "quality": "hd1080",
+          "xtags": "CgcKAnNyEgEx",
+          "fps": 30,
+          "qualityLabel": "1080p",
+          "projectionType": "RECTANGULAR",
+          "averageBitrate": 1619858,
+          "colorInfo": {
+            "transferCharacteristics": "COLOR_TRANSFER_CHARACTERISTICS_BT709"
+          },
+          "approxDurationMs": "170971",
+          "signatureCipher": "s=%3DAghFNxwhq51lyHgmyKKNkq6wIPm87TsAuK5WkKauR9yAEiAOqp7JJLJ7TmKbSpG2AphjBv1bv2hMAELr8nf_ck8mlIAhIgRwYJ2s0Eu0Eu&sp=sig&url=https://rr1---sn-8xouxav-vnad.googlevideo.com/videoplayback%3Fexpire%3D1790298949%26ei%3D5Xa1atm4EbuG0u8P5P-a0AY%26ip%3D193.69.229.85%26id%3Do-APCOObjvzif2yoNIMASppL8f3zcR1J_4CjQGE0_p0CnI%26itag%3D248%26source%3Dyoutube%26requiressl%3Dyes%26xpc%3DEgVo2aDSNQ%253D%253D%26cps%3D1051%26met%3D1790277349%252C%26mh%3DHF%26mm%3D18%252C29%26mn%3Dsn-8xouxav-vnad%252Csn-aj5go5-53%26ms%3Daub%252Crdu%26mv%3Dm%26mvi%3D1%26pl%3D16%26rms%3Daub%252Caub%26ctier%3DA%26pfa%3D5%26initcwndbps%3D3540000%26hightc%3Dyes%26siu%3D1%26bui%3DAWzQHwqJxj8djE92MVr8R-35pGK8nMYfho2V73cd6WgxztQ73c_98yWmILRr0ytoIaJJYYvJvQ%26spc%3DI-rgIWOSckmt8jtrnmoa_cdUWpLZaicvxlvDu8Zg3rdArczRU3Dj-kf0SOQYIjA%26vprv%3D1%26svpuc%3D1%26xtags%3Dsr%253D1%26mime%3Dvideo%252Fwebm%26ns%3DeNyZP_FaKpb_jpw9elTmciYY%26rqh%3D1%26gir%3Dyes%26clen%3D34618606%26dur%3D170.971%26lmt%3D1769984528054797%26mt%3D1790276994%26fvip%3D1%26keepalive%3Dyes%26fexp%3D51565116%252C52178456%26c%3DWEB_REMIX%26sefc%3D1%26txp%3D5532534%26n%3DzKYkM70CYVQxAzd%26sparams%3Dexpire%252Cei%252Cip%252Cid%252Citag%252Csource%252Crequiressl%252Cxpc%252Cctier%252Cpfa%252Chightc%252Csiu%252Cbui%252Cspc%252Cvprv%252Csvpuc%252Cxtags%252Cmime%252Cns%252Crqh%252Cgir%252Cclen%252Cdur%252Clmt%26lsparams%3Dcps%252Cmet%252Cmh%252Cmm%252Cmn%252Cms%252Cmv%252Cmvi%252Cpl%252Crms%252Cinitcwndbps%26lsig%3DAPaTxxMwRQIgO88GgIsLItemqSfAB4eDPimdKe13bX965SM2IMq667MCIQDzlo4kEUlxB7MWB6ff0F4P--xl1awkGDLKsQF6Hw-HfA%253D%253D",
+          "qualityOrdinal": "QUALITY_ORDINAL_1080P"
+        },
+        {
+          "itag": 247,
+          "mimeType": "video/webm; codecs=\"vp9\"",
+          "bitrate": 1156976,
+          "width": 1280,
+          "height": 720,
+          "initRange": {
+            "start": "0",
+            "end": "219"
+          },
+          "indexRange": {
+            "start": "220",
+            "end": "793"
+          },
+          "lastModified": "1769982482247527",
+          "contentLength": "19960080",
+          "quality": "hd720",
+          "xtags": "CgcKAnNyEgEx",
+          "fps": 30,
+          "qualityLabel": "720p",
+          "projectionType": "RECTANGULAR",
+          "averageBitrate": 933963,
+          "colorInfo": {
+            "transferCharacteristics": "COLOR_TRANSFER_CHARACTERISTICS_BT709"
+          },
+          "approxDurationMs": "170971",
+          "signatureCipher": "s=%3DUdmoVwLcYYvglA0sGZfdxjOmsYFWOXAformsFbG3ZdrAEiAqCkaE93scKEX2MZ3_AuXLgcSxXx2frVtXmsansUT3bLAhIgRwYJ2s0EB0EB&sp=sig&url=https://rr1---sn-8xouxav-vnad.googlevideo.com/videoplayback%3Fexpire%3D1790298949%26ei%3D5Xa1atm4EbuG0u8P5P-a0AY%26ip%3D193.69.229.85%26id%3Do-APCOObjvzif2yoNIMASppL8f3zcR1J_4CjQGE0_p0CnI%26itag%3D247%26source%3Dyoutube%26requiressl%3Dyes%26xpc%3DEgVo2aDSNQ%253D%253D%26cps%3D1051%26met%3D1790277349%252C%26mh%3DHF%26mm%3D18%252C29%26mn%3Dsn-8xouxav-vnad%252Csn-aj5go5-53%26ms%3Daub%252Crdu%26mv%3Dm%26mvi%3D1%26pl%3D16%26rms%3Daub%252Caub%26ctier%3DA%26pfa%3D5%26initcwndbps%3D3540000%26hightc%3Dyes%26siu%3D1%26bui%3DAWzQHwqJxj8djE92MVr8R-35pGK8nMYfho2V73cd6WgxztQ73c_98yWmILRr0ytoIaJJYYvJvQ%26spc%3DI-rgIWOSckmt8jtrnmoa_cdUWpLZaicvxlvDu8Zg3rdArczRU3Dj-kf0SOQYIjA%26vprv%3D1%26svpuc%3D1%26xtags%3Dsr%253D1%26mime%3Dvideo%252Fwebm%26ns%3DeNyZP_FaKpb_jpw9elTmciYY%26rqh%3D1%26gir%3Dyes%26clen%3D19960080%26dur%3D170.971%26lmt%3D1769982482247527%26mt%3D1790276994%26fvip%3D1%26keepalive%3Dyes%26fexp%3D51565116%252C52178456%26c%3DWEB_REMIX%26sefc%3D1%26txp%3D5532534%26n%3DzKYkM70CYVQxAzd%26sparams%3Dexpire%252Cei%252Cip%252Cid%252Citag%252Csource%252Crequiressl%252Cxpc%252Cctier%252Cpfa%252Chightc%252Csiu%252Cbui%252Cspc%252Cvprv%252Csvpuc%252Cxtags%252Cmime%252Cns%252Crqh%252Cgir%252Cclen%252Cdur%252Clmt%26lsparams%3Dcps%252Cmet%252Cmh%252Cmm%252Cmn%252Cms%252Cmv%252Cmvi%252Cpl%252Crms%252Cinitcwndbps%26lsig%3DAPaTxxMwRQIgO88GgIsLItemqSfAB4eDPimdKe13bX965SM2IMq667MCIQDzlo4kEUlxB7MWB6ff0F4P--xl1awkGDLKsQF6Hw-HfA%253D%253D",
+          "qualityOrdinal": "QUALITY_ORDINAL_720P"
+        },
+        {
+          "itag": 135,
+          "mimeType": "video/mp4; codecs=\"avc1.4d401f\"",
+          "bitrate": 942907,
+          "width": 854,
+          "height": 480,
+          "initRange": {
+            "start": "0",
+            "end": "738"
+          },
+          "indexRange": {
+            "start": "739",
+            "end": "1178"
+          },
+          "lastModified": "1776511456236350",
+          "contentLength": "15035616",
+          "quality": "large",
+          "fps": 30,
+          "qualityLabel": "480p",
+          "projectionType": "RECTANGULAR",
+          "averageBitrate": 703544,
+          "approxDurationMs": "170970",
+          "signatureCipher": "s=%3D%3DgG2LjHJ-DGrfya2Bz9g1nxiZIQ3gJhLrHJzib3DEoHPCQICQastVoiVnLvUBcpzAKSoYQtYDo64WseZ3j92YhRpwZXgIQRwYJ2s0EX0EX&sp=sig&url=https://rr1---sn-8xouxav-vnad.googlevideo.com/videoplayback%3Fexpire%3D1790298949%26ei%3D5Xa1atm4EbuG0u8P5P-a0AY%26ip%3D193.69.229.85%26id%3Do-APCOObjvzif2yoNIMASppL8f3zcR1J_4CjQGE0_p0CnI%26itag%3D135%26source%3Dyoutube%26requiressl%3Dyes%26xpc%3DEgVo2aDSNQ%253D%253D%26cps%3D1051%26met%3D1790277349%252C%26mh%3DHF%26mm%3D18%252C29%26mn%3Dsn-8xouxav-vnad%252Csn-aj5go5-53%26ms%3Daub%252Crdu%26mv%3Dm%26mvi%3D1%26pl%3D16%26rms%3Daub%252Caub%26ctier%3DA%26pfa%3D5%26initcwndbps%3D3540000%26hightc%3Dyes%26siu%3D1%26bui%3DAWzQHwqJxj8djE92MVr8R-35pGK8nMYfho2V73cd6WgxztQ73c_98yWmILRr0ytoIaJJYYvJvQ%26spc%3DI-rgIWOSckmt8jtrnmoa_cdUWpLZaicvxlvDu8Zg3rdArczRU3Dj-kf0SOQYIjA%26vprv%3D1%26svpuc%3D1%26mime%3Dvideo%252Fmp4%26ns%3DeNyZP_FaKpb_jpw9elTmciYY%26rqh%3D1%26gir%3Dyes%26clen%3D15035616%26dur%3D170.970%26lmt%3D1776511456236350%26mt%3D1790276994%26fvip%3D1%26keepalive%3Dyes%26fexp%3D51565116%252C52178456%26c%3DWEB_REMIX%26sefc%3D1%26txp%3D5532534%26n%3DzKYkM70CYVQxAzd%26sparams%3Dexpire%252Cei%252Cip%252Cid%252Citag%252Csource%252Crequiressl%252Cxpc%252Cctier%252Cpfa%252Chightc%252Csiu%252Cbui%252Cspc%252Cvprv%252Csvpuc%252Cmime%252Cns%252Crqh%252Cgir%252Cclen%252Cdur%252Clmt%26lsparams%3Dcps%252Cmet%252Cmh%252Cmm%252Cmn%252Cms%252Cmv%252Cmvi%252Cpl%252Crms%252Cinitcwndbps%26lsig%3DAPaTxxMwRQIgO88GgIsLItemqSfAB4eDPimdKe13bX965SM2IMq667MCIQDzlo4kEUlxB7MWB6ff0F4P--xl1awkGDLKsQF6Hw-HfA%253D%253D",
+          "qualityOrdinal": "QUALITY_ORDINAL_480P"
+        },
+        {
+          "itag": 244,
+          "mimeType": "video/webm; codecs=\"vp9\"",
+          "bitrate": 914770,
+          "width": 854,
+          "height": 480,
+          "initRange": {
+            "start": "0",
+            "end": "219"
+          },
+          "indexRange": {
+            "start": "220",
+            "end": "788"
+          },
+          "lastModified": "1776516258761564",
+          "contentLength": "15959028",
+          "quality": "large",
+          "fps": 30,
+          "qualityLabel": "480p",
+          "projectionType": "RECTANGULAR",
+          "averageBitrate": 746747,
+          "colorInfo": {
+            "transferCharacteristics": "COLOR_TRANSFER_CHARACTERISTICS_BT709"
+          },
+          "approxDurationMs": "170971",
+          "signatureCipher": "s=%3DUZiGW9Cek67OB65Emdgo06KyMHFWs4N0u7eRPE6ksxpAEiAGinq1yscNGf-zIX1KAoYLwZKgbHLOSlysWnfoa8KXyPAhIgRwYJ2s0ED0ED&sp=sig&url=https://rr1---sn-8xouxav-vnad.googlevideo.com/videoplayback%3Fexpire%3D1790298949%26ei%3D5Xa1atm4EbuG0u8P5P-a0AY%26ip%3D193.69.229.85%26id%3Do-APCOObjvzif2yoNIMASppL8f3zcR1J_4CjQGE0_p0CnI%26itag%3D244%26source%3Dyoutube%26requiressl%3Dyes%26xpc%3DEgVo2aDSNQ%253D%253D%26cps%3D1051%26met%3D1790277349%252C%26mh%3DHF%26mm%3D18%252C29%26mn%3Dsn-8xouxav-vnad%252Csn-aj5go5-53%26ms%3Daub%252Crdu%26mv%3Dm%26mvi%3D1%26pl%3D16%26rms%3Daub%252Caub%26ctier%3DA%26pfa%3D5%26initcwndbps%3D3540000%26hightc%3Dyes%26siu%3D1%26bui%3DAWzQHwqJxj8djE92MVr8R-35pGK8nMYfho2V73cd6WgxztQ73c_98yWmILRr0ytoIaJJYYvJvQ%26spc%3DI-rgIWOSckmt8jtrnmoa_cdUWpLZaicvxlvDu8Zg3rdArczRU3Dj-kf0SOQYIjA%26vprv%3D1%26svpuc%3D1%26mime%3Dvideo%252Fwebm%26ns%3DeNyZP_FaKpb_jpw9elTmciYY%26rqh%3D1%26gir%3Dyes%26clen%3D15959028%26dur%3D170.971%26lmt%3D1776516258761564%26mt%3D1790276994%26fvip%3D1%26keepalive%3Dyes%26fexp%3D51565116%252C52178456%26c%3DWEB_REMIX%26sefc%3D1%26txp%3D5532534%26n%3DzKYkM70CYVQxAzd%26sparams%3Dexpire%252Cei%252Cip%252Cid%252Citag%252Csource%252Crequiressl%252Cxpc%252Cctier%252Cpfa%252Chightc%252Csiu%252Cbui%252Cspc%252Cvprv%252Csvpuc%252Cmime%252Cns%252Crqh%252Cgir%252Cclen%252Cdur%252Clmt%26lsparams%3Dcps%252Cmet%252Cmh%252Cmm%252Cmn%252Cms%252Cmv%252Cmvi%252Cpl%252Crms%252Cinitcwndbps%26lsig%3DAPaTxxMwRQIgO88GgIsLItemqSfAB4eDPimdKe13bX965SM2IMq667MCIQDzlo4kEUlxB7MWB6ff0F4P--xl1awkGDLKsQF6Hw-HfA%253D%253D",
+          "qualityOrdinal": "QUALITY_ORDINAL_480P"
+        },
+        {
+          "itag": 134,
+          "mimeType": "video/mp4; codecs=\"avc1.4d401e\"",
+          "bitrate": 607222,
+          "width": 640,
+          "height": 360,
+          "initRange": {
+            "start": "0",
+            "end": "738"
+          },
+          "indexRange": {
+            "start": "739",
+            "end": "1178"
+          },
+          "lastModified": "1776511571608849",
+          "contentLength": "9687288",
+          "quality": "medium",
+          "fps": 30,
+          "qualityLabel": "360p",
+          "projectionType": "RECTANGULAR",
+          "averageBitrate": 453285,
+          "highReplication": true,
+          "approxDurationMs": "170970",
+          "signatureCipher": "s=%3D8LCZkkGTrl4O_368ArXFnyzg4nSa0AfWWO2gaj1ZJJqAEiAH77GqAE1OJbtbLlukA2XTOx6FB6LB8R26tbLaQkfOcIAhIgRwYJ2s0Ev0Ev&sp=sig&url=https://rr1---sn-8xouxav-vnad.googlevideo.com/videoplayback%3Fexpire%3D1790298949%26ei%3D5Xa1atm4EbuG0u8P5P-a0AY%26ip%3D193.69.229.85%26id%3Do-APCOObjvzif2yoNIMASppL8f3zcR1J_4CjQGE0_p0CnI%26itag%3D134%26source%3Dyoutube%26requiressl%3Dyes%26xpc%3DEgVo2aDSNQ%253D%253D%26cps%3D1051%26met%3D1790277349%252C%26mh%3DHF%26mm%3D18%252C29%26mn%3Dsn-8xouxav-vnad%252Csn-aj5go5-53%26ms%3Daub%252Crdu%26mv%3Dm%26mvi%3D1%26pl%3D16%26rms%3Daub%252Caub%26ctier%3DA%26pfa%3D5%26initcwndbps%3D3540000%26hightc%3Dyes%26siu%3D1%26bui%3DAWzQHwqJxj8djE92MVr8R-35pGK8nMYfho2V73cd6WgxztQ73c_98yWmILRr0ytoIaJJYYvJvQ%26spc%3DI-rgIWOSckmt8jtrnmoa_cdUWpLZaicvxlvDu8Zg3rdArczRU3Dj-kf0SOQYIjA%26vprv%3D1%26svpuc%3D1%26mime%3Dvideo%252Fmp4%26ns%3DeNyZP_FaKpb_jpw9elTmciYY%26rqh%3D1%26gir%3Dyes%26clen%3D9687288%26dur%3D170.970%26lmt%3D1776511571608849%26mt%3D1790276994%26fvip%3D1%26keepalive%3Dyes%26fexp%3D51565116%252C52178456%26c%3DWEB_REMIX%26sefc%3D1%26txp%3D5532534%26n%3DzKYkM70CYVQxAzd%26sparams%3Dexpire%252Cei%252Cip%252Cid%252Citag%252Csource%252Crequiressl%252Cxpc%252Cctier%252Cpfa%252Chightc%252Csiu%252Cbui%252Cspc%252Cvprv%252Csvpuc%252Cmime%252Cns%252Crqh%252Cgir%252Cclen%252Cdur%252Clmt%26lsparams%3Dcps%252Cmet%252Cmh%252Cmm%252Cmn%252Cms%252Cmv%252Cmvi%252Cpl%252Crms%252Cinitcwndbps%26lsig%3DAPaTxxMwRQIgO88GgIsLItemqSfAB4eDPimdKe13bX965SM2IMq667MCIQDzlo4kEUlxB7MWB6ff0F4P--xl1awkGDLKsQF6Hw-HfA%253D%253D",
+          "qualityOrdinal": "QUALITY_ORDINAL_360P"
+        },
+        {
+          "itag": 243,
+          "mimeType": "video/webm; codecs=\"vp9\"",
+          "bitrate": 354404,
+          "width": 640,
+          "height": 360,
+          "initRange": {
+            "start": "0",
+            "end": "219"
+          },
+          "indexRange": {
+            "start": "220",
+            "end": "788"
+          },
+          "lastModified": "1776514894480798",
+          "contentLength": "6508637",
+          "quality": "medium",
+          "fps": 30,
+          "qualityLabel": "360p",
+          "projectionType": "RECTANGULAR",
+          "averageBitrate": 304549,
+          "colorInfo": {
+            "transferCharacteristics": "COLOR_TRANSFER_CHARACTERISTICS_BT709"
+          },
+          "approxDurationMs": "170971",
+          "signatureCipher": "s=mIvloScBICCnrNO3huZZLWAyIDFB9jDmMOtpp-Lhz9DIC4Lzr9U78DGGJnvfdA82kpNQ6ikIc_aImGsdfhhnQoECgIARwYJ2s0EB0EB&sp=sig&url=https://rr1---sn-8xouxav-vnad.googlevideo.com/videoplayback%3Fexpire%3D1790298949%26ei%3D5Xa1atm4EbuG0u8P5P-a0AY%26ip%3D193.69.229.85%26id%3Do-APCOObjvzif2yoNIMASppL8f3zcR1J_4CjQGE0_p0CnI%26itag%3D243%26source%3Dyoutube%26requiressl%3Dyes%26xpc%3DEgVo2aDSNQ%253D%253D%26cps%3D1051%26met%3D1790277349%252C%26mh%3DHF%26mm%3D18%252C29%26mn%3Dsn-8xouxav-vnad%252Csn-aj5go5-53%26ms%3Daub%252Crdu%26mv%3Dm%26mvi%3D1%26pl%3D16%26rms%3Daub%252Caub%26ctier%3DA%26pfa%3D5%26initcwndbps%3D3540000%26hightc%3Dyes%26siu%3D1%26bui%3DAWzQHwqJxj8djE92MVr8R-35pGK8nMYfho2V73cd6WgxztQ73c_98yWmILRr0ytoIaJJYYvJvQ%26spc%3DI-rgIWOSckmt8jtrnmoa_cdUWpLZaicvxlvDu8Zg3rdArczRU3Dj-kf0SOQYIjA%26vprv%3D1%26svpuc%3D1%26mime%3Dvideo%252Fwebm%26ns%3DeNyZP_FaKpb_jpw9elTmciYY%26rqh%3D1%26gir%3Dyes%26clen%3D6508637%26dur%3D170.971%26lmt%3D1776514894480798%26mt%3D1790276994%26fvip%3D1%26keepalive%3Dyes%26fexp%3D51565116%252C52178456%26c%3DWEB_REMIX%26sefc%3D1%26txp%3D5532534%26n%3DzKYkM70CYVQxAzd%26sparams%3Dexpire%252Cei%252Cip%252Cid%252Citag%252Csource%252Crequiressl%252Cxpc%252Cctier%252Cpfa%252Chightc%252Csiu%252Cbui%252Cspc%252Cvprv%252Csvpuc%252Cmime%252Cns%252Crqh%252Cgir%252Cclen%252Cdur%252Clmt%26lsparams%3Dcps%252Cmet%252Cmh%252Cmm%252Cmn%252Cms%252Cmv%252Cmvi%252Cpl%252Crms%252Cinitcwndbps%26lsig%3DAPaTxxMwRQIgO88GgIsLItemqSfAB4eDPimdKe13bX965SM2IMq667MCIQDzlo4kEUlxB7MWB6ff0F4P--xl1awkGDLKsQF6Hw-HfA%253D%253D",
+          "qualityOrdinal": "QUALITY_ORDINAL_360P"
+        },
+        {
+          "itag": 133,
+          "mimeType": "video/mp4; codecs=\"avc1.4d4015\"",
+          "bitrate": 245964,
+          "width": 426,
+          "height": 240,
+          "initRange": {
+            "start": "0",
+            "end": "738"
+          },
+          "indexRange": {
+            "start": "739",
+            "end": "1178"
+          },
+          "lastModified": "1776511540942582",
+          "contentLength": "4879821",
+          "quality": "small",
+          "fps": 30,
+          "qualityLabel": "240p",
+          "projectionType": "RECTANGULAR",
+          "averageBitrate": 228335,
+          "approxDurationMs": "170970",
+          "signatureCipher": "s=%3Dw8bQXgGcV7ZepB5lUXVDtBNQUldnoJg-f90nfRNgxo3AEiAIln_pHUMGrBBMu9o-AJyd2c2qGC7XdnV2twzaNkeDDIAhIgRwYJ2s0ER0ER&sp=sig&url=https://rr1---sn-8xouxav-vnad.googlevideo.com/videoplayback%3Fexpire%3D1790298949%26ei%3D5Xa1atm4EbuG0u8P5P-a0AY%26ip%3D193.69.229.85%26id%3Do-APCOObjvzif2yoNIMASppL8f3zcR1J_4CjQGE0_p0CnI%26itag%3D133%26source%3Dyoutube%26requiressl%3Dyes%26xpc%3DEgVo2aDSNQ%253D%253D%26cps%3D1051%26met%3D1790277349%252C%26mh%3DHF%26mm%3D18%252C29%26mn%3Dsn-8xouxav-vnad%252Csn-aj5go5-53%26ms%3Daub%252Crdu%26mv%3Dm%26mvi%3D1%26pl%3D16%26rms%3Daub%252Caub%26ctier%3DA%26pfa%3D5%26initcwndbps%3D3540000%26hightc%3Dyes%26siu%3D1%26bui%3DAWzQHwqJxj8djE92MVr8R-35pGK8nMYfho2V73cd6WgxztQ73c_98yWmILRr0ytoIaJJYYvJvQ%26spc%3DI-rgIWOSckmt8jtrnmoa_cdUWpLZaicvxlvDu8Zg3rdArczRU3Dj-kf0SOQYIjA%26vprv%3D1%26svpuc%3D1%26mime%3Dvideo%252Fmp4%26ns%3DeNyZP_FaKpb_jpw9elTmciYY%26rqh%3D1%26gir%3Dyes%26clen%3D4879821%26dur%3D170.970%26lmt%3D1776511540942582%26mt%3D1790276994%26fvip%3D1%26keepalive%3Dyes%26fexp%3D51565116%252C52178456%26c%3DWEB_REMIX%26sefc%3D1%26txp%3D5532534%26n%3DzKYkM70CYVQxAzd%26sparams%3Dexpire%252Cei%252Cip%252Cid%252Citag%252Csource%252Crequiressl%252Cxpc%252Cctier%252Cpfa%252Chightc%252Csiu%252Cbui%252Cspc%252Cvprv%252Csvpuc%252Cmime%252Cns%252Crqh%252Cgir%252Cclen%252Cdur%252Clmt%26lsparams%3Dcps%252Cmet%252Cmh%252Cmm%252Cmn%252Cms%252Cmv%252Cmvi%252Cpl%252Crms%252Cinitcwndbps%26lsig%3DAPaTxxMwRQIgO88GgIsLItemqSfAB4eDPimdKe13bX965SM2IMq667MCIQDzlo4kEUlxB7MWB6ff0F4P--xl1awkGDLKsQF6Hw-HfA%253D%253D",
+          "qualityOrdinal": "QUALITY_ORDINAL_240P"
+        },
+        {
+          "itag": 242,
+          "mimeType": "video/webm; codecs=\"vp9\"",
+          "bitrate": 172257,
+          "width": 426,
+          "height": 240,
+          "initRange": {
+            "start": "0",
+            "end": "218"
+          },
+          "indexRange": {
+            "start": "219",
+            "end": "787"
+          },
+          "lastModified": "1776516348636734",
+          "contentLength": "3112934",
+          "quality": "small",
+          "fps": 30,
+          "qualityLabel": "240p",
+          "projectionType": "RECTANGULAR",
+          "averageBitrate": 145659,
+          "colorInfo": {
+            "transferCharacteristics": "COLOR_TRANSFER_CHARACTERISTICS_BT709"
+          },
+          "approxDurationMs": "170971",
+          "signatureCipher": "s=%3DIPbpOEDOcmcgGbRxL4zkKb3gAA6bfL8ZKN6kgZnmOAuAEiA_bPRfp1fmI9gV6vKdAkjjGKUn2aaHp53sQP4fJIbu6KAhIgRwYJ2s0E40E4&sp=sig&url=https://rr1---sn-8xouxav-vnad.googlevideo.com/videoplayback%3Fexpire%3D1790298949%26ei%3D5Xa1atm4EbuG0u8P5P-a0AY%26ip%3D193.69.229.85%26id%3Do-APCOObjvzif2yoNIMASppL8f3zcR1J_4CjQGE0_p0CnI%26itag%3D242%26source%3Dyoutube%26requiressl%3Dyes%26xpc%3DEgVo2aDSNQ%253D%253D%26cps%3D1051%26met%3D1790277349%252C%26mh%3DHF%26mm%3D18%252C29%26mn%3Dsn-8xouxav-vnad%252Csn-aj5go5-53%26ms%3Daub%252Crdu%26mv%3Dm%26mvi%3D1%26pl%3D16%26rms%3Daub%252Caub%26ctier%3DA%26pfa%3D5%26initcwndbps%3D3540000%26hightc%3Dyes%26siu%3D1%26bui%3DAWzQHwqJxj8djE92MVr8R-35pGK8nMYfho2V73cd6WgxztQ73c_98yWmILRr0ytoIaJJYYvJvQ%26spc%3DI-rgIWOSckmt8jtrnmoa_cdUWpLZaicvxlvDu8Zg3rdArczRU3Dj-kf0SOQYIjA%26vprv%3D1%26svpuc%3D1%26mime%3Dvideo%252Fwebm%26ns%3DeNyZP_FaKpb_jpw9elTmciYY%26rqh%3D1%26gir%3Dyes%26clen%3D3112934%26dur%3D170.971%26lmt%3D1776516348636734%26mt%3D1790276994%26fvip%3D1%26keepalive%3Dyes%26fexp%3D51565116%252C52178456%26c%3DWEB_REMIX%26sefc%3D1%26txp%3D5532534%26n%3DzKYkM70CYVQxAzd%26sparams%3Dexpire%252Cei%252Cip%252Cid%252Citag%252Csource%252Crequiressl%252Cxpc%252Cctier%252Cpfa%252Chightc%252Csiu%252Cbui%252Cspc%252Cvprv%252Csvpuc%252Cmime%252Cns%252Crqh%252Cgir%252Cclen%252Cdur%252Clmt%26lsparams%3Dcps%252Cmet%252Cmh%252Cmm%252Cmn%252Cms%252Cmv%252Cmvi%252Cpl%252Crms%252Cinitcwndbps%26lsig%3DAPaTxxMwRQIgO88GgIsLItemqSfAB4eDPimdKe13bX965SM2IMq667MCIQDzlo4kEUlxB7MWB6ff0F4P--xl1awkGDLKsQF6Hw-HfA%253D%253D",
+          "qualityOrdinal": "QUALITY_ORDINAL_240P"
+        },
+        {
+          "itag": 160,
+          "mimeType": "video/mp4; codecs=\"avc1.4d400c\"",
+          "bitrate": 112143,
+          "width": 256,
+          "height": 144,
+          "initRange": {
+            "start": "0",
+            "end": "737"
+          },
+          "indexRange": {
+            "start": "738",
+            "end": "1177"
+          },
+          "lastModified": "1776511555527146",
+          "contentLength": "2251289",
+          "quality": "tiny",
+          "fps": 30,
+          "qualityLabel": "144p",
+          "projectionType": "RECTANGULAR",
+          "averageBitrate": 105341,
+          "approxDurationMs": "170970",
+          "signatureCipher": "s=%3D%3DA4uFwOMuEs4e_rsjUCoLWOgZzQzBsbVCskWtHhido2QDQICAKtnh62VpTtzM4pBAOUPkqMgKjeVpkJUXbnxRQt9uGUgIQRwYJ2s0EK0EK&sp=sig&url=https://rr1---sn-8xouxav-vnad.googlevideo.com/videoplayback%3Fexpire%3D1790298949%26ei%3D5Xa1atm4EbuG0u8P5P-a0AY%26ip%3D193.69.229.85%26id%3Do-APCOObjvzif2yoNIMASppL8f3zcR1J_4CjQGE0_p0CnI%26itag%3D160%26source%3Dyoutube%26requiressl%3Dyes%26xpc%3DEgVo2aDSNQ%253D%253D%26cps%3D1051%26met%3D1790277349%252C%26mh%3DHF%26mm%3D18%252C29%26mn%3Dsn-8xouxav-vnad%252Csn-aj5go5-53%26ms%3Daub%252Crdu%26mv%3Dm%26mvi%3D1%26pl%3D16%26rms%3Daub%252Caub%26ctier%3DA%26pfa%3D5%26initcwndbps%3D3540000%26hightc%3Dyes%26siu%3D1%26bui%3DAWzQHwqJxj8djE92MVr8R-35pGK8nMYfho2V73cd6WgxztQ73c_98yWmILRr0ytoIaJJYYvJvQ%26spc%3DI-rgIWOSckmt8jtrnmoa_cdUWpLZaicvxlvDu8Zg3rdArczRU3Dj-kf0SOQYIjA%26vprv%3D1%26svpuc%3D1%26mime%3Dvideo%252Fmp4%26ns%3DeNyZP_FaKpb_jpw9elTmciYY%26rqh%3D1%26gir%3Dyes%26clen%3D2251289%26dur%3D170.970%26lmt%3D1776511555527146%26mt%3D1790276994%26fvip%3D1%26keepalive%3Dyes%26fexp%3D51565116%252C52178456%26c%3DWEB_REMIX%26sefc%3D1%26txp%3D5532534%26n%3DzKYkM70CYVQxAzd%26sparams%3Dexpire%252Cei%252Cip%252Cid%252Citag%252Csource%252Crequiressl%252Cxpc%252Cctier%252Cpfa%252Chightc%252Csiu%252Cbui%252Cspc%252Cvprv%252Csvpuc%252Cmime%252Cns%252Crqh%252Cgir%252Cclen%252Cdur%252Clmt%26lsparams%3Dcps%252Cmet%252Cmh%252Cmm%252Cmn%252Cms%252Cmv%252Cmvi%252Cpl%252Crms%252Cinitcwndbps%26lsig%3DAPaTxxMwRQIgO88GgIsLItemqSfAB4eDPimdKe13bX965SM2IMq667MCIQDzlo4kEUlxB7MWB6ff0F4P--xl1awkGDLKsQF6Hw-HfA%253D%253D",
+          "qualityOrdinal": "QUALITY_ORDINAL_144P"
+        },
+        {
+          "itag": 278,
+          "mimeType": "video/webm; codecs=\"vp9\"",
+          "bitrate": 93664,
+          "width": 256,
+          "height": 144,
+          "initRange": {
+            "start": "0",
+            "end": "217"
+          },
+          "indexRange": {
+            "start": "218",
+            "end": "785"
+          },
+          "lastModified": "1776515334899185",
+          "contentLength": "1731363",
+          "quality": "tiny",
+          "fps": 30,
+          "qualityLabel": "144p",
+          "projectionType": "RECTANGULAR",
+          "averageBitrate": 81013,
+          "colorInfo": {
+            "transferCharacteristics": "COLOR_TRANSFER_CHARACTERISTICS_BT709"
+          },
+          "approxDurationMs": "170971",
+          "signatureCipher": "s=%3D8Ig744m9fCdce_ijr3NhOiTNLJcCFlBoCgzvU3GBoetAEiAY-Sy4gXRM4685a6SuAY6CpUX2Oug0Dzt3ESstc_X0vMAhIgRwYJ2s0EA0EA&sp=sig&url=https://rr1---sn-8xouxav-vnad.googlevideo.com/videoplayback%3Fexpire%3D1790298949%26ei%3D5Xa1atm4EbuG0u8P5P-a0AY%26ip%3D193.69.229.85%26id%3Do-APCOObjvzif2yoNIMASppL8f3zcR1J_4CjQGE0_p0CnI%26itag%3D278%26source%3Dyoutube%26requiressl%3Dyes%26xpc%3DEgVo2aDSNQ%253D%253D%26cps%3D1051%26met%3D1790277349%252C%26mh%3DHF%26mm%3D18%252C29%26mn%3Dsn-8xouxav-vnad%252Csn-aj5go5-53%26ms%3Daub%252Crdu%26mv%3Dm%26mvi%3D1%26pl%3D16%26rms%3Daub%252Caub%26ctier%3DA%26pfa%3D5%26initcwndbps%3D3540000%26hightc%3Dyes%26siu%3D1%26bui%3DAWzQHwqJxj8djE92MVr8R-35pGK8nMYfho2V73cd6WgxztQ73c_98yWmILRr0ytoIaJJYYvJvQ%26spc%3DI-rgIWOSckmt8jtrnmoa_cdUWpLZaicvxlvDu8Zg3rdArczRU3Dj-kf0SOQYIjA%26vprv%3D1%26svpuc%3D1%26mime%3Dvideo%252Fwebm%26ns%3DeNyZP_FaKpb_jpw9elTmciYY%26rqh%3D1%26gir%3Dyes%26clen%3D1731363%26dur%3D170.971%26lmt%3D1776515334899185%26mt%3D1790276994%26fvip%3D1%26keepalive%3Dyes%26fexp%3D51565116%252C52178456%26c%3DWEB_REMIX%26sefc%3D1%26txp%3D5532534%26n%3DzKYkM70CYVQxAzd%26sparams%3Dexpire%252Cei%252Cip%252Cid%252Citag%252Csource%252Crequiressl%252Cxpc%252Cctier%252Cpfa%252Chightc%252Csiu%252Cbui%252Cspc%252Cvprv%252Csvpuc%252Cmime%252Cns%252Crqh%252Cgir%252Cclen%252Cdur%252Clmt%26lsparams%3Dcps%252Cmet%252Cmh%252Cmm%252Cmn%252Cms%252Cmv%252Cmvi%252Cpl%252Crms%252Cinitcwndbps%26lsig%3DAPaTxxMwRQIgO88GgIsLItemqSfAB4eDPimdKe13bX965SM2IMq667MCIQDzlo4kEUlxB7MWB6ff0F4P--xl1awkGDLKsQF6Hw-HfA%253D%253D",
+          "qualityOrdinal": "QUALITY_ORDINAL_144P"
+        },
+        {
+          "itag": 140,
+          "mimeType": "audio/mp4; codecs=\"mp4a.40.2\"",
+          "bitrate": 131897,
+          "initRange": {
+            "start": "0",
+            "end": "722"
+          },
+          "indexRange": {
+            "start": "723",
+            "end": "970"
+          },
+          "lastModified": "1776508615870827",
+          "contentLength": "2769860",
+          "quality": "tiny",
+          "projectionType": "RECTANGULAR",
+          "averageBitrate": 129537,
+          "highReplication": true,
+          "audioQuality": "AUDIO_QUALITY_MEDIUM",
+          "approxDurationMs": "171061",
+          "audioSampleRate": "44100",
+          "audioChannels": 2,
+          "loudnessDb": -4.24,
+          "signatureCipher": "s=%3D%3Dg9bNRcPFC3w4GkntX6awzx1mESeNUlrPI_TEvYUNywyDQIC8i793xD7DfQK1690AN-kw8P8mNA7-WDNKl6pXWx7liOgIQRwYJ2s0Es0Es&sp=sig&url=https://rr1---sn-8xouxav-vnad.googlevideo.com/videoplayback%3Fexpire%3D1790298949%26ei%3D5Xa1atm4EbuG0u8P5P-a0AY%26ip%3D193.69.229.85%26id%3Do-APCOObjvzif2yoNIMASppL8f3zcR1J_4CjQGE0_p0CnI%26itag%3D140%26source%3Dyoutube%26requiressl%3Dyes%26xpc%3DEgVo2aDSNQ%253D%253D%26cps%3D1051%26met%3D1790277349%252C%26mh%3DHF%26mm%3D18%252C29%26mn%3Dsn-8xouxav-vnad%252Csn-aj5go5-53%26ms%3Daub%252Crdu%26mv%3Dm%26mvi%3D1%26pl%3D16%26rms%3Daub%252Caub%26ctier%3DA%26pfa%3D5%26initcwndbps%3D3540000%26hightc%3Dyes%26siu%3D1%26bui%3DAWzQHwqJxj8djE92MVr8R-35pGK8nMYfho2V73cd6WgxztQ73c_98yWmILRr0ytoIaJJYYvJvQ%26spc%3DI-rgIWOSckmt8jtrnmoa_cdUWpLZaicvxlvDu8Zg3rdArczRU3Dj-kf0SOQYIjA%26vprv%3D1%26svpuc%3D1%26mime%3Daudio%252Fmp4%26ns%3DeNyZP_FaKpb_jpw9elTmciYY%26rqh%3D1%26gir%3Dyes%26clen%3D2769860%26dur%3D171.061%26lmt%3D1776508615870827%26mt%3D1790276994%26fvip%3D1%26keepalive%3Dyes%26fexp%3D51565116%252C52178456%26c%3DWEB_REMIX%26sefc%3D1%26txp%3D5532534%26n%3DzKYkM70CYVQxAzd%26sparams%3Dexpire%252Cei%252Cip%252Cid%252Citag%252Csource%252Crequiressl%252Cxpc%252Cctier%252Cpfa%252Chightc%252Csiu%252Cbui%252Cspc%252Cvprv%252Csvpuc%252Cmime%252Cns%252Crqh%252Cgir%252Cclen%252Cdur%252Clmt%26lsparams%3Dcps%252Cmet%252Cmh%252Cmm%252Cmn%252Cms%252Cmv%252Cmvi%252Cpl%252Crms%252Cinitcwndbps%26lsig%3DAPaTxxMwRQIgO88GgIsLItemqSfAB4eDPimdKe13bX965SM2IMq667MCIQDzlo4kEUlxB7MWB6ff0F4P--xl1awkGDLKsQF6Hw-HfA%253D%253D",
+          "trackAbsoluteLoudnessLkfs": -11.24,
+          "qualityOrdinal": "QUALITY_ORDINAL_UNKNOWN"
+        },
+        {
+          "itag": 249,
+          "mimeType": "audio/webm; codecs=\"opus\"",
+          "bitrate": 51418,
+          "initRange": {
+            "start": "0",
+            "end": "265"
+          },
+          "indexRange": {
+            "start": "266",
+            "end": "567"
+          },
+          "lastModified": "1776509442807648",
+          "contentLength": "1039891",
+          "quality": "tiny",
+          "projectionType": "RECTANGULAR",
+          "averageBitrate": 48638,
+          "audioQuality": "AUDIO_QUALITY_LOW",
+          "approxDurationMs": "171041",
+          "audioSampleRate": "48000",
+          "audioChannels": 2,
+          "loudnessDb": -4.25,
+          "signatureCipher": "s=tyH_9PGiG3XMB6TPsqDbSJkcdGCAo_wCDF535C28s1CIC0EokR7N5fl2dlWdpArmGGf_4unrowludd5byPT3RoDZgIARwYJ2s0EC0EC&sp=sig&url=https://rr1---sn-8xouxav-vnad.googlevideo.com/videoplayback%3Fexpire%3D1790298949%26ei%3D5Xa1atm4EbuG0u8P5P-a0AY%26ip%3D193.69.229.85%26id%3Do-APCOObjvzif2yoNIMASppL8f3zcR1J_4CjQGE0_p0CnI%26itag%3D249%26source%3Dyoutube%26requiressl%3Dyes%26xpc%3DEgVo2aDSNQ%253D%253D%26cps%3D1051%26met%3D1790277349%252C%26mh%3DHF%26mm%3D18%252C29%26mn%3Dsn-8xouxav-vnad%252Csn-aj5go5-53%26ms%3Daub%252Crdu%26mv%3Dm%26mvi%3D1%26pl%3D16%26rms%3Daub%252Caub%26ctier%3DA%26pfa%3D5%26initcwndbps%3D3540000%26hightc%3Dyes%26siu%3D1%26bui%3DAWzQHwqJxj8djE92MVr8R-35pGK8nMYfho2V73cd6WgxztQ73c_98yWmILRr0ytoIaJJYYvJvQ%26spc%3DI-rgIWOSckmt8jtrnmoa_cdUWpLZaicvxlvDu8Zg3rdArczRU3Dj-kf0SOQYIjA%26vprv%3D1%26svpuc%3D1%26mime%3Daudio%252Fwebm%26ns%3DeNyZP_FaKpb_jpw9elTmciYY%26rqh%3D1%26gir%3Dyes%26clen%3D1039891%26dur%3D171.041%26lmt%3D1776509442807648%26mt%3D1790276994%26fvip%3D1%26keepalive%3Dyes%26fexp%3D51565116%252C52178456%26c%3DWEB_REMIX%26sefc%3D1%26txp%3D5532534%26n%3DzKYkM70CYVQxAzd%26sparams%3Dexpire%252Cei%252Cip%252Cid%252Citag%252Csource%252Crequiressl%252Cxpc%252Cctier%252Cpfa%252Chightc%252Csiu%252Cbui%252Cspc%252Cvprv%252Csvpuc%252Cmime%252Cns%252Crqh%252Cgir%252Cclen%252Cdur%252Clmt%26lsparams%3Dcps%252Cmet%252Cmh%252Cmm%252Cmn%252Cms%252Cmv%252Cmvi%252Cpl%252Crms%252Cinitcwndbps%26lsig%3DAPaTxxMwRQIgO88GgIsLItemqSfAB4eDPimdKe13bX965SM2IMq667MCIQDzlo4kEUlxB7MWB6ff0F4P--xl1awkGDLKsQF6Hw-HfA%253D%253D",
+          "trackAbsoluteLoudnessLkfs": -11.25,
+          "qualityOrdinal": "QUALITY_ORDINAL_UNKNOWN"
+        },
+        {
+          "itag": 250,
+          "mimeType": "audio/webm; codecs=\"opus\"",
+          "bitrate": 68481,
+          "initRange": {
+            "start": "0",
+            "end": "265"
+          },
+          "indexRange": {
+            "start": "266",
+            "end": "568"
+          },
+          "lastModified": "1776509608238444",
+          "contentLength": "1378224",
+          "quality": "tiny",
+          "projectionType": "RECTANGULAR",
+          "averageBitrate": 64462,
+          "audioQuality": "AUDIO_QUALITY_LOW",
+          "approxDurationMs": "171041",
+          "audioSampleRate": "48000",
+          "audioChannels": 2,
+          "loudnessDb": -4.25,
+          "signatureCipher": "s=%3D%3DA97T7YI6kHRmzuQVuFmGBLtaorvUnatGeIPJ-Obgxy1DQICctXr9-rlGXhpa0Q0AcyinmwbThQEByR2IS-fRq0CHDcgIQRwYJ2s0En0En&sp=sig&url=https://rr1---sn-8xouxav-vnad.googlevideo.com/videoplayback%3Fexpire%3D1790298949%26ei%3D5Xa1atm4EbuG0u8P5P-a0AY%26ip%3D193.69.229.85%26id%3Do-APCOObjvzif2yoNIMASppL8f3zcR1J_4CjQGE0_p0CnI%26itag%3D250%26source%3Dyoutube%26requiressl%3Dyes%26xpc%3DEgVo2aDSNQ%253D%253D%26cps%3D1051%26met%3D1790277349%252C%26mh%3DHF%26mm%3D18%252C29%26mn%3Dsn-8xouxav-vnad%252Csn-aj5go5-53%26ms%3Daub%252Crdu%26mv%3Dm%26mvi%3D1%26pl%3D16%26rms%3Daub%252Caub%26ctier%3DA%26pfa%3D5%26initcwndbps%3D3540000%26hightc%3Dyes%26siu%3D1%26bui%3DAWzQHwqJxj8djE92MVr8R-35pGK8nMYfho2V73cd6WgxztQ73c_98yWmILRr0ytoIaJJYYvJvQ%26spc%3DI-rgIWOSckmt8jtrnmoa_cdUWpLZaicvxlvDu8Zg3rdArczRU3Dj-kf0SOQYIjA%26vprv%3D1%26svpuc%3D1%26mime%3Daudio%252Fwebm%26ns%3DeNyZP_FaKpb_jpw9elTmciYY%26rqh%3D1%26gir%3Dyes%26clen%3D1378224%26dur%3D171.041%26lmt%3D1776509608238444%26mt%3D1790276994%26fvip%3D1%26keepalive%3Dyes%26fexp%3D51565116%252C52178456%26c%3DWEB_REMIX%26sefc%3D1%26txp%3D5532534%26n%3DzKYkM70CYVQxAzd%26sparams%3Dexpire%252Cei%252Cip%252Cid%252Citag%252Csource%252Crequiressl%252Cxpc%252Cctier%252Cpfa%252Chightc%252Csiu%252Cbui%252Cspc%252Cvprv%252Csvpuc%252Cmime%252Cns%252Crqh%252Cgir%252Cclen%252Cdur%252Clmt%26lsparams%3Dcps%252Cmet%252Cmh%252Cmm%252Cmn%252Cms%252Cmv%252Cmvi%252Cpl%252Crms%252Cinitcwndbps%26lsig%3DAPaTxxMwRQIgO88GgIsLItemqSfAB4eDPimdKe13bX965SM2IMq667MCIQDzlo4kEUlxB7MWB6ff0F4P--xl1awkGDLKsQF6Hw-HfA%253D%253D",
+          "trackAbsoluteLoudnessLkfs": -11.25,
+          "qualityOrdinal": "QUALITY_ORDINAL_UNKNOWN"
+        },
+        {
+          "itag": 251,
+          "mimeType": "audio/webm; codecs=\"opus\"",
+          "bitrate": 135655,
+          "initRange": {
+            "start": "0",
+            "end": "265"
+          },
+          "indexRange": {
+            "start": "266",
+            "end": "568"
+          },
+          "lastModified": "1776508634586187",
+          "contentLength": "2770892",
+          "quality": "tiny",
+          "projectionType": "RECTANGULAR",
+          "averageBitrate": 129601,
+          "audioQuality": "AUDIO_QUALITY_MEDIUM",
+          "approxDurationMs": "171041",
+          "audioSampleRate": "48000",
+          "audioChannels": 2,
+          "loudnessDb": -4.25,
+          "signatureCipher": "s=%3D%3DACJ2R7nGKBhRCmAFPLNg564eiJpLVMIz0EF3FSU17loCQICwu6BhvYH-twr4jtPACvVc9uL8RTRrMamq2JWvnwF_SVgIQRwYJ2s0EO0EO&sp=sig&url=https://rr1---sn-8xouxav-vnad.googlevideo.com/videoplayback%3Fexpire%3D1790298949%26ei%3D5Xa1atm4EbuG0u8P5P-a0AY%26ip%3D193.69.229.85%26id%3Do-APCOObjvzif2yoNIMASppL8f3zcR1J_4CjQGE0_p0CnI%26itag%3D251%26source%3Dyoutube%26requiressl%3Dyes%26xpc%3DEgVo2aDSNQ%253D%253D%26cps%3D1051%26met%3D1790277349%252C%26mh%3DHF%26mm%3D18%252C29%26mn%3Dsn-8xouxav-vnad%252Csn-aj5go5-53%26ms%3Daub%252Crdu%26mv%3Dm%26mvi%3D1%26pl%3D16%26rms%3Daub%252Caub%26ctier%3DA%26pfa%3D5%26initcwndbps%3D3540000%26hightc%3Dyes%26siu%3D1%26bui%3DAWzQHwqJxj8djE92MVr8R-35pGK8nMYfho2V73cd6WgxztQ73c_98yWmILRr0ytoIaJJYYvJvQ%26spc%3DI-rgIWOSckmt8jtrnmoa_cdUWpLZaicvxlvDu8Zg3rdArczRU3Dj-kf0SOQYIjA%26vprv%3D1%26svpuc%3D1%26mime%3Daudio%252Fwebm%26ns%3DeNyZP_FaKpb_jpw9elTmciYY%26rqh%3D1%26gir%3Dyes%26clen%3D2770892%26dur%3D171.041%26lmt%3D1776508634586187%26mt%3D1790276994%26fvip%3D1%26keepalive%3Dyes%26fexp%3D51565116%252C52178456%26c%3DWEB_REMIX%26sefc%3D1%26txp%3D5532534%26n%3DzKYkM70CYVQxAzd%26sparams%3Dexpire%252Cei%252Cip%252Cid%252Citag%252Csource%252Crequiressl%252Cxpc%252Cctier%252Cpfa%252Chightc%252Csiu%252Cbui%252Cspc%252Cvprv%252Csvpuc%252Cmime%252Cns%252Crqh%252Cgir%252Cclen%252Cdur%252Clmt%26lsparams%3Dcps%252Cmet%252Cmh%252Cmm%252Cmn%252Cms%252Cmv%252Cmvi%252Cpl%252Crms%252Cinitcwndbps%26lsig%3DAPaTxxMwRQIgO88GgIsLItemqSfAB4eDPimdKe13bX965SM2IMq667MCIQDzlo4kEUlxB7MWB6ff0F4P--xl1awkGDLKsQF6Hw-HfA%253D%253D",
+          "trackAbsoluteLoudnessLkfs": -11.25,
+          "qualityOrdinal": "QUALITY_ORDINAL_UNKNOWN"
+        }
+      ],
+      "serverAbrStreamingUrl": "https://rr1---sn-8xouxav-vnad.googlevideo.com/videoplayback?expire=1790298949&ei=5Xa1atm4EbuG0u8P5P-a0AY&ip=193.69.229.85&id=o-APCOObjvzif2yoNIMASppL8f3zcR1J_4CjQGE0_p0CnI&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&cps=1051&met=1790277349%2C&mh=HF&mm=18%2C29&mn=sn-8xouxav-vnad%2Csn-aj5go5-53&ms=aub%2Crdu&mv=m&mvi=1&pl=16&rms=aub%2Caub&ctier=A&pfa=5&initcwndbps=3540000&hightc=yes&siu=1&spc=I-rgIWOSckmt8jtrnmoa_cdUWpLZaicvxlvDu8Zg3rdArczRU3Dj-kf0SOQYIjA&svpuc=1&ns=rLrQgAaCpUgzw-e8G4ETOuMY&sabr=1&rqh=1&mt=1790276994&fvip=1&keepalive=yes&fexp=51565116%2C52178456&c=WEB_REMIX&n=cCYjFroFq0AminA&sparams=expire%2Cei%2Cip%2Cid%2Csource%2Crequiressl%2Cxpc%2Cctier%2Cpfa%2Chightc%2Csiu%2Cspc%2Csvpuc%2Cns%2Csabr%2Crqh&sig=AE0s2JYwRgIhAN-Lyj5uKlatdk3JMlh8Ocvb_MU6WqeTCCshatOy-qLZAiEAnG_PcEs-pmKFNpFRsA6Gsi6nmBUAK4c_wj-DFdas15U%3D&lsparams=cps%2Cmet%2Cmh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Crms%2Cinitcwndbps&lsig=APaTxxMwRQIgO88GgIsLItemqSfAB4eDPimdKe13bX965SM2IMq667MCIQDzlo4kEUlxB7MWB6ff0F4P--xl1awkGDLKsQF6Hw-HfA%3D%3D"
+    },
+    "heartbeatParams": {
+      "heartbeatToken": "[redacted]",
+      "intervalMilliseconds": "60000",
+      "maxRetries": "15",
+      "drmSessionId": "KRVeokjEztul7iCX",
+      "softFailOnError": true,
+      "heartbeatServerData": "MDxyDAjl7dXVBhC6tMifAbIBwglBQ2loNlpPaGZWZk9HZUY2c3NXc3VHUUdMWmpNcXNXMktjVnVOZGlkd01DckVnYjdxdnRELXZUTE1vd1V3MFJfQ3ZQdkpxaTBDbHl0cDhpVmF0cXl0MEFlejVXWmZYOXpYTzB5aWdlczN6OS1sRlhQTUlXbjVmUmVXZThULVhUbENrbXVCbS1hcWFBR3R2WUx5RDB5VlNUNTBoQlRkU09KZjRUQU15RzlBeXIyTFRuWE9LY051QjhLSkkzSG5FM3RCNXlSdTZ4Qlo2eW5xOXJiSmlBMDdrdjhHMTMtODd1bTRsTlZHcDNMTV9LWEstQTd4RC1WNHhCYzNIUDk0UVdyQ05jcEZqdjgxNnAzZ2N6d3pZNHk4T1pyOFM5eXcwRG5QdzJoSXMtSW5nbGoyaWNpbE9NVkZwSzFCZjZkT09YaVFYS21vaGdiaGlKNEpaaFhBM0ctRHdyUXZoVzZzQjZ6ejVCdzFGSnNjMzVidTZqc1QwaDRMY1NUcWpfeW9ic014RGJ2c1NCa0lZc0wydTNKQUFFZDJxX2R0WnJVZkl6dHk1anNoTU44QTlTOW5DdUoyc3FONlJYYjRRNlhCUzRqUnJCdEE1b0NhN29uQVhRWjVISjhOXzFTWWxGb1FJVDFVZzVkeHVRREg5NzdLY0pjalRYM3BrSjUzRmlMSDBLZXZyV3BnQ1dQaHZ1VFZ3TkRpQjhRcGI5aXRXSkFRbEhaWU1GcG1UX0d5LWZpQmxvNXdrS0tpcVBmcFo0VzBDVFpFXzZlS21YSGIxNlZxamwzWnlOdVhZR0ZnWlkwaUVqYmR5VXFETjdTTnoyMTRqV2dkd0R4UkkyWU83bm1WOW5wZE5acm16cm5BV2V1UGlnSTJnanhlTGR2LS0xUEsyb3luZ1JrRWdQVHVZYXlPYTE5aFdCVTBwNm9vbGVPTWlvU2JnYzFKUS1fXzZ3d2x2dnZwLUdZeHJmNThDSkVsQzlZWDI2RkcxeXI5SmJ1bGlDbnI5RUl0bUdvTkVMT19xNHppWENnVVN2cjYwN2VHd2JsNUpIMXdPWGQ5WjlJSVM5dmh1a25RdU14dGVVdjYyVWVDQkMwdUpTc01lTWFUdWJxUnNKc2s4SFRmNUNsZTFMbHRlWHZpZ0VKb1BVZ0VsNkdSTjBQUXBYMG8wZGZTSUJkaWVNMXY2RDVtTUI2LUlfNTRLOXRqREc1ZEdvR09JQ0hHTUVtYkhrVlFKWVd3Y2VRalpXRlRyNkRudWx4MkVxZHhRNV9nLWN0akRjYXFsUEtXVFVxVnJQeDVQTV9IQzBvNlltV0hneEdDTG1TMHh4TGMwV3VacXdnUDdfNm5QOTg1bXVja3FzbGpYRS1ZRkpmTkh6dEsyQkFETVhnbzB1R2k2MHlUWGM2WmJnRXBURVhOeUlOTWF5Y0loMGVQa1l6aEVaMzNWWkRtWG1ZLUdQT2cwVnJOMElOQWNWR1lLWGVMaFFjNnYzdGVPcUVGUDk4OHIyNEFadVhiRnVJcFVrUkU3OENEVkU0OVRhcVBqcHFaOFU1ZG9IUktYcGJaWUJtUEJaV2xzTkkwSTlvWlByTGQ1OHNQR0l4WFlDZ2Q3czctWjBjTFdpTmR0VHlUeGwtcXc="
+    },
+    "playbackTracking": {
+      "videostatsPlaybackUrl": {
+        "baseUrl": "https://s.youtube.com/api/stats/playback?cl=987138361&docid=0qanF-91aJo&ei=5Xa1atm4EbuG0u8P5P-a0AY&fexp=&ns=yt&plid=AAZcP210zPsbZJD0&el=detailpage&len=172&of=1YlB5A_XQuvLw3ZkHFxNFg&osid=AAAAAbMnZFk%3AAOeUNAbH18HYn7RJ5rrUCIoAZJrBUqzLag&uga=f41&vm=CAMQARgBOjJBSHFpSlRJbWtLeXlKSEZMMnFoSDQ3R2NyVTY4djU5cWFmMHJSMzVNTkQyajBlNVI2d2JcQUNPdTRMU0NmS3FETnFEOXZlM1ZuY3FQVmp6YzV1Q0dsRjdmRXhZNFlIeHh3SThhcUFQUlRSRUlud1BkOWt3WGp1WkQwOEtiMG1WX2ZlWmFDaTRfWjBTZERjblK4AQE",
+        "headers": [
+          {
+            "headerType": "USER_AUTH"
+          },
+          {
+            "headerType": "VISITOR_ID"
+          },
+          {
+            "headerType": "PLUS_PAGE_ID"
+          }
+        ]
+      },
+      "videostatsDelayplayUrl": {
+        "baseUrl": "https://s.youtube.com/api/stats/delayplay?cl=987138361&docid=0qanF-91aJo&ei=5Xa1atm4EbuG0u8P5P-a0AY&fexp=&ns=yt&plid=AAZcP210zPsbZJD0&el=detailpage&len=172&of=1YlB5A_XQuvLw3ZkHFxNFg&osid=AAAAAbMnZFk%3AAOeUNAbH18HYn7RJ5rrUCIoAZJrBUqzLag&uga=f41&vm=CAMQARgBOjJBSHFpSlRJbWtLeXlKSEZMMnFoSDQ3R2NyVTY4djU5cWFmMHJSMzVNTkQyajBlNVI2d2JcQUNPdTRMU0NmS3FETnFEOXZlM1ZuY3FQVmp6YzV1Q0dsRjdmRXhZNFlIeHh3SThhcUFQUlRSRUlud1BkOWt3WGp1WkQwOEtiMG1WX2ZlWmFDaTRfWjBTZERjblK4AQE",
+        "headers": [
+          {
+            "headerType": "USER_AUTH"
+          },
+          {
+            "headerType": "VISITOR_ID"
+          },
+          {
+            "headerType": "PLUS_PAGE_ID"
+          }
+        ]
+      },
+      "videostatsWatchtimeUrl": {
+        "baseUrl": "https://s.youtube.com/api/stats/watchtime?cl=987138361&docid=0qanF-91aJo&ei=5Xa1atm4EbuG0u8P5P-a0AY&fexp=&ns=yt&plid=AAZcP210zPsbZJD0&el=detailpage&len=172&of=1YlB5A_XQuvLw3ZkHFxNFg&osid=AAAAAbMnZFk%3AAOeUNAbH18HYn7RJ5rrUCIoAZJrBUqzLag&uga=f41&vm=CAMQARgBOjJBSHFpSlRJbWtLeXlKSEZMMnFoSDQ3R2NyVTY4djU5cWFmMHJSMzVNTkQyajBlNVI2d2JcQUNPdTRMU0NmS3FETnFEOXZlM1ZuY3FQVmp6YzV1Q0dsRjdmRXhZNFlIeHh3SThhcUFQUlRSRUlud1BkOWt3WGp1WkQwOEtiMG1WX2ZlWmFDaTRfWjBTZERjblK4AQE",
+        "headers": [
+          {
+            "headerType": "USER_AUTH"
+          },
+          {
+            "headerType": "VISITOR_ID"
+          },
+          {
+            "headerType": "PLUS_PAGE_ID"
+          }
+        ]
+      },
+      "ptrackingUrl": {
+        "baseUrl": "https://www.youtube.com/ptracking?ei=5Xa1atm4EbuG0u8P5P-a0AY&oid=XhHohlIZyNTrURLDpxhk1Q&plid=AAZcP210zPsbZJD0&pltype=contentugc&ptk=youtube_single&video_id=0qanF-91aJo",
+        "headers": [
+          {
+            "headerType": "USER_AUTH"
+          },
+          {
+            "headerType": "VISITOR_ID"
+          },
+          {
+            "headerType": "PLUS_PAGE_ID"
+          }
+        ]
+      },
+      "qoeUrl": {
+        "baseUrl": "https://s.youtube.com/api/stats/qoe?cat=sr&cl=987138361&docid=0qanF-91aJo&ei=5Xa1atm4EbuG0u8P5P-a0AY&el=detailpage&event=streamingstats&fexp=&ns=yt&osid=AAAAAbMnZFk%3AAOeUNAbH18HYn7RJ5rrUCIoAZJrBUqzLag&plid=AAZcP210zPsbZJD0",
+        "headers": [
+          {
+            "headerType": "USER_AUTH"
+          },
+          {
+            "headerType": "VISITOR_ID"
+          },
+          {
+            "headerType": "PLUS_PAGE_ID"
+          }
+        ]
+      },
+      "atrUrl": {
+        "baseUrl": "https://s.youtube.com/api/stats/atr?c=WEB_REMIX&docid=0qanF-91aJo&ei=5Xa1atm4EbuG0u8P5P-a0AY&len=172&ns=yt&plid=AAZcP210zPsbZJD0&ver=2&vm=CAMQARgBOjJBSHFpSlRJbWtLeXlKSEZMMnFoSDQ3R2NyVTY4djU5cWFmMHJSMzVNTkQyajBlNVI2d2JcQUNPdTRMU0NmS3FETnFEOXZlM1ZuY3FQVmp6YzV1Q0dsRjdmRXhZNFlIeHh3SThhcUFQUlRSRUlud1BkOWt3WGp1WkQwOEtiMG1WX2ZlWmFDaTRfWjBTZERjblK4AQE",
+        "elapsedMediaTimeSeconds": 5,
+        "headers": [
+          {
+            "headerType": "USER_AUTH"
+          },
+          {
+            "headerType": "VISITOR_ID"
+          },
+          {
+            "headerType": "PLUS_PAGE_ID"
+          }
+        ]
+      },
+      "videostatsScheduledFlushWalltimeSeconds": [
+        10,
+        20,
+        30
+      ],
+      "videostatsDefaultFlushIntervalSeconds": 40,
+      "youtubeRemarketingUrl": {
+        "baseUrl": "https://www.youtube.com/pagead/viewthroughconversion/962985656/?backend=innertube&cname=67&cver=1_20000101&foc_id=rx-X329UKv0Y06VhfpFVvw&label=followon_view&ptype=no_rmkt&random=471515452",
+        "elapsedMediaTimeSeconds": 0,
+        "headers": [
+          {
+            "headerType": "USER_AUTH"
+          },
+          {
+            "headerType": "VISITOR_ID"
+          }
+        ]
+      },
+      "googleRemarketingUrl": {
+        "baseUrl": "https://www.google.com/pagead/1p-user-list/962985656/?backend=innertube&cname=67&cver=1_20000101&data=backend%3Dinnertube%3Bcname%3D67%3Bcver%3D1_20000101%3Bm%3D1%3Bptype%3Df_view%3Btype%3Dview%3Butuid%3Drx-X329UKv0Y06VhfpFVvw%3Butvid%3D0qanF-91aJo%3Bw%3D1&is_vtc=0&ptype=f_view&random=60810637&utuid=rx-X329UKv0Y06VhfpFVvw",
+        "elapsedMediaTimeSeconds": 0,
+        "headers": [
+          {
+            "headerType": "USER_AUTH"
+          }
+        ]
+      }
+    },
+    "captions": {
+      "playerCaptionsTracklistRenderer": {
+        "captionTracks": [
+          {
+            "baseUrl": "https://www.youtube.com/api/timedtext?v=0qanF-91aJo&ei=5Xa1atm4EbuG0u8P5P-a0AY&caps=asr&opi=112496729&xoaf=5&xowf=1&hl=en&ip=0.0.0.0&ipbits=0&expire=1790302549&sparams=ip,ipbits,expire,v,ei,caps,opi,xoaf&signature=893F3AD6E561F711C9F4B14587000EE6CCA25431.220EA4E0F1E1BE9167CA5B4C716A424802A07A92&key=yt8&kind=asr&lang=en",
+            "name": {
+              "runs": [
+                {
+                  "text": "English (auto-generated)"
+                }
+              ]
+            },
+            "vssId": "a.en",
+            "languageCode": "en",
+            "kind": "asr",
+            "isTranslatable": true,
+            "trackName": ""
+          }
+        ],
+        "audioTracks": [
+          {
+            "captionTrackIndices": [
+              0
+            ]
+          }
+        ],
+        "translationLanguages": [
+          {
+            "languageCode": "ab",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Abkhazian"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "aa",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Afar"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "af",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Afrikaans"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "ak",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Akan"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "sq",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Albanian"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "am",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Amharic"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "ar",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Arabic"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "hy",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Armenian"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "as",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Assamese"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "ay",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Aymara"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "az",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Azerbaijani"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "bn",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Bangla"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "ba",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Bashkir"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "eu",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Basque"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "be",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Belarusian"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "bho",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Bhojpuri"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "bs",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Bosnian"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "br",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Breton"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "bg",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Bulgarian"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "my",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Burmese"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "ca",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Catalan"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "ceb",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Cebuano"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "zh-Hans",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Chinese (Simplified)"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "zh-Hant",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Chinese (Traditional)"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "co",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Corsican"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "hr",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Croatian"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "cs",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Czech"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "da",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Danish"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "dv",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Divehi"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "nl",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Dutch"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "dz",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Dzongkha"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "en",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "English"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "eo",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Esperanto"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "et",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Estonian"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "ee",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Ewe"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "fo",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Faroese"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "fj",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Fijian"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "fil",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Filipino"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "fi",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Finnish"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "fr",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "French"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "gaa",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Ga"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "gl",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Galician"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "lg",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Ganda"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "ka",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Georgian"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "de",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "German"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "el",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Greek"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "gn",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Guarani"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "gu",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Gujarati"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "ht",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Haitian Creole"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "ha",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Hausa"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "haw",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Hawaiian"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "iw",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Hebrew"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "hi",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Hindi"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "hmn",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Hmong"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "hu",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Hungarian"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "is",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Icelandic"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "ig",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Igbo"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "id",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Indonesian"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "iu",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Inuktitut"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "ga",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Irish"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "it",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Italian"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "ja",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Japanese"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "jv",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Javanese"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "kl",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Kalaallisut"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "kn",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Kannada"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "kk",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Kazakh"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "kha",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Khasi"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "km",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Khmer"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "rw",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Kinyarwanda"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "ko",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Korean"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "kri",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Krio"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "ku",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Kurdish"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "ky",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Kyrgyz"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "lo",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Lao"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "la",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Latin"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "lv",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Latvian"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "ln",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Lingala"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "lt",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Lithuanian"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "lua",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Luba-Lulua"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "luo",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Luo"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "lb",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Luxembourgish"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "mk",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Macedonian"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "mg",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Malagasy"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "ms",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Malay"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "ml",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Malayalam"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "mt",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Maltese"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "gv",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Manx"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "mi",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Māori"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "mr",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Marathi"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "mn",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Mongolian"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "mfe",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Morisyen"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "ne",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Nepali"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "new",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Newari"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "nso",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Northern Sotho"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "no",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Norwegian"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "ny",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Nyanja"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "oc",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Occitan"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "or",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Odia"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "om",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Oromo"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "os",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Ossetic"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "pam",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Pampanga"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "ps",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Pashto"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "fa",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Persian"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "pl",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Polish"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "pt",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Portuguese"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "pt-PT",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Portuguese (Portugal)"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "pa",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Punjabi"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "qu",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Quechua"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "ro",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Romanian"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "rn",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Rundi"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "ru",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Russian"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "sm",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Samoan"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "sg",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Sango"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "sa",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Sanskrit"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "gd",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Scottish Gaelic"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "sr",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Serbian"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "crs",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Seselwa Creole French"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "sn",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Shona"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "sd",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Sindhi"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "si",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Sinhala"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "sk",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Slovak"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "sl",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Slovenian"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "so",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Somali"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "st",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Southern Sotho"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "es",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Spanish"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "su",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Sundanese"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "sw",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Swahili"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "ss",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Swati"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "sv",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Swedish"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "tg",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Tajik"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "ta",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Tamil"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "tt",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Tatar"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "te",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Telugu"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "th",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Thai"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "bo",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Tibetan"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "ti",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Tigrinya"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "to",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Tongan"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "ts",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Tsonga"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "tn",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Tswana"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "tum",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Tumbuka"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "tr",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Turkish"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "tk",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Turkmen"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "uk",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Ukrainian"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "ur",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Urdu"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "ug",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Uyghur"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "uz",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Uzbek"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "ve",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Venda"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "vi",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Vietnamese"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "war",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Waray"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "cy",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Welsh"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "fy",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Western Frisian"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "wo",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Wolof"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "xh",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Xhosa"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "yi",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Yiddish"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "yo",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Yoruba"
+                }
+              ]
+            }
+          },
+          {
+            "languageCode": "zu",
+            "languageName": {
+              "runs": [
+                {
+                  "text": "Zulu"
+                }
+              ]
+            }
+          }
+        ],
+        "defaultAudioTrackIndex": 0
+      }
+    },
+    "videoDetails": {
+      "videoId": "0qanF-91aJo",
+      "title": "Paranoid",
+      "lengthSeconds": "171",
+      "channelId": "UCrx-X329UKv0Y06VhfpFVvw",
+      "isOwnerViewing": false,
+      "isCrawlable": true,
+      "thumbnail": {
+        "thumbnails": [
+          {
+            "url": "https://i.ytimg.com/vi/0qanF-91aJo/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AOn4CLBUVsodRD8oDNaE8-zZnJViTVm9Wg",
+            "width": 400,
+            "height": 225
+          },
+          {
+            "url": "https://i.ytimg.com/vi/0qanF-91aJo/sddefault.jpg?sqp=-oaymwEWCKoDEPABIAQqCghqEJQEGHgg6AJIWg&rs=AOn4CLDt7yeHVQ2l8IssxCREvObQ9mhYSQ",
+            "width": 426,
+            "height": 240
+          }
+        ]
+      },
+      "allowRatings": true,
+      "viewCount": "401094317",
+      "author": "Black Sabbath",
+      "isPrivate": false,
+      "isUnpluggedCorpus": false,
+      "musicVideoType": "MUSIC_VIDEO_TYPE_OMV",
+      "isLiveContent": false,
+      "isTvfilmVideo": false
+    },
+    "playerConfig": {
+      "vssClientConfig": {
+        "vssUsePostRequest": true
+      },
+      "audioConfig": {
+        "loudnessDb": -4.24,
+        "perceptualLoudnessDb": -11.24,
+        "enablePerFormatLoudness": true,
+        "trackAbsoluteLoudnessLkfs": -11.24,
+        "loudnessTargetLkfs": -7,
+        "loudnessNormalizationConfig": {
+          "applyStatefulNormalization": false,
+          "preserveStatefulLoudnessTarget": true,
+          "maxStatefulTimeThresholdSec": 300,
+          "minimumLoudnessTargetLkfs": -31
+        }
+      },
+      "streamSelectionConfig": {
+        "maxBitrate": "28320000"
+      },
+      "playerControlsConfig": {
+        "showCachedInTimebar": true
+      },
+      "mediaCommonConfig": {
+        "dynamicReadaheadConfig": {
+          "maxReadAheadMediaTimeMs": 120000,
+          "minReadAheadMediaTimeMs": 15000,
+          "readAheadGrowthRateMs": 1000
+        },
+        "mediaUstreamerRequestConfig": {
+          "videoPlaybackUstreamerConfig": "Cu0GCrAECAAlAACAPy0zM3M_NT0Klz9yBAoAGACgAQGoAQC4AgHaAn0QsOoBGIDd2wEgoJwBKKCcAXCIJ4AB9APgAQOYAgzQAgLoAgSAAwKIA4gnqAMDwAMByAMBgAQB0AQB2AQB-AQHgAV9wAUByAUB4AXQD_gF0A-QBgHQBgHwBgGAB9APgAgBiAgBnQgAAIC_oAjoB-AIAegI____________AfoCN4UCmpkZPo0CAACAP8ACjwGdAwrXIz3VBAAAIEG1Br03hjW9BjMzg0DIBwHlBwCACUTwBwGACAGoAwGwAwPQAwHYAwHKBBwKEwjAqQcQmHUY6AclAAAAACgAMAAQ4NQDGNAP0gQPCggIsAkQsAkgASCIJygB2gQNCgYI8C4Q8C4g8C4oAZgGAagGgIAC0gYUCOgHEGQaDQiIJxUAAAA_Hc3MTD_YBgG4BwGgCAHSCAYIARABGAGpCQAAAAAAAPC_sQkAAAAAAADwv9AJAdoJIEhXWW9qeXh0ZXltV0V0VzlkWVBscUdJNmVDSGszZz09oAsB6gsEiwaMBoAMAagMkAHYDAHIDwGYEAHoEAGQEQHgEgGAEwHYEwCIFACRFAAAAAAAAPC_mRQAAAAAAADwv8oUANgUiCfiFDgKABI0Q0FNU0lSVVl1TGJKREtrSi1SVjJvQWJnRnM3YkQta0JsQTh1QkpZR001OEJ2Z1N3QkE9PYEVAAAAAAAA8L-YFQGoFQG4FQHIFQGIp6HKCwEyGgj4ARCN9LWYqrmSAxoMQ2djS0FuTnlFZ0V4MhoI9wEQ597zyKK5kgMaDENnY0tBbk55RWdFeDIMCIcBEL6mp_Kk95MDMgwI9AEQ3Jaq5Lb3kwMyDAiGARCRiqmppfeTAzIMCPMBEJ6L5dmx95MDMgwIhQEQ9q3ZmqX3kwMyDAjyARC-3JePt_eTAzIMCKABEOrD06Gl95MDMgwIlgIQ8Yvmq7P3kwMyDAiMARDrkvWnmveTAzIMCPkBEOCunbKd95MDMgwI-gEQ7LqOgZ73kwMyDAj7ARDLuOuwmveTAzoAUi0aAmVuKAAyGFVDcngtWDMyOVVLdjBZMDZWaGZwRlZ2d0AAUB5YAGAAeACIAQGSAQIIApoBBAoCdHKgAQGwAQW6AQMEBTHCAQgBAgMEBQgqMNABAYACABJMAKLe-00wRQIhAJAF5DMod09jJ07UPUqBQE5hAXFW7hkteghgGKX5DVsYAiB9Ojh0jqP0oBavbFYuC8k5il4DTz0bawBJxPIOM57IFBoCZWk="
+        },
+        "useServerDrivenAbr": false,
+        "serverPlaybackStartConfig": {
+          "enable": true,
+          "playbackStartPolicy": {
+            "startMinReadaheadPolicy": [
+              {
+                "minReadaheadMs": 1200
+              }
+            ]
+          }
+        },
+        "platypusUseEnvoyNetFetch": false,
+        "fixLivePlaybackModelDefaultPosition": false
+      },
+      "webPlayerConfig": {
+        "useCobaltTvosDash": true,
+        "webPlayerActionsPorting": {
+          "subscribeCommand": {
+            "clickTrackingParams": "CAAQu2kiEwiZv9Dr9oeXAxU7g_QHHeS_BmrKAQR-4CVq",
+            "subscribeEndpoint": {
+              "channelIds": [
+                "UCrx-X329UKv0Y06VhfpFVvw"
+              ],
+              "params": "EgIIBxgA"
+            }
+          },
+          "unsubscribeCommand": {
+            "clickTrackingParams": "CAAQu2kiEwiZv9Dr9oeXAxU7g_QHHeS_BmrKAQR-4CVq",
+            "unsubscribeEndpoint": {
+              "channelIds": [
+                "UCrx-X329UKv0Y06VhfpFVvw"
+              ],
+              "params": "CgIIBxgA"
+            }
+          },
+          "addToWatchLaterCommand": {
+            "clickTrackingParams": "CAAQu2kiEwiZv9Dr9oeXAxU7g_QHHeS_BmrKAQR-4CVq",
+            "playlistEditEndpoint": {
+              "playlistId": "WL",
+              "actions": [
+                {
+                  "addedVideoId": "0qanF-91aJo",
+                  "action": "ACTION_ADD_VIDEO"
+                }
+              ]
+            }
+          },
+          "removeFromWatchLaterCommand": {
+            "clickTrackingParams": "CAAQu2kiEwiZv9Dr9oeXAxU7g_QHHeS_BmrKAQR-4CVq",
+            "playlistEditEndpoint": {
+              "playlistId": "WL",
+              "actions": [
+                {
+                  "action": "ACTION_REMOVE_VIDEO_BY_VIDEO_ID",
+                  "removedVideoId": "0qanF-91aJo"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "storyboards": {
+      "playerStoryboardSpecRenderer": {
+        "spec": "https://i.ytimg.com/sb/0qanF-91aJo/storyboard3_L$L/$N.jpg?sqp=-oaymwENSDfyq4qpAwVwAcABBqLzl_8DBgi1oZO3Bg==|48#27#100#10#10#0#default#rs$AOn4CLD_htCpW6q3fIHTr-9iSgdVCblWpw|80#45#87#10#10#2000#M$M#rs$AOn4CLCY2cGlRsy_Pi5AZQuE0HG1hZW2Lw|160#90#87#5#5#2000#M$M#rs$AOn4CLArGxQbiYvZW6im5NUvVIbpSBD_Qg",
+        "recommendedLevel": 2
+      }
+    },
+    "microformat": {
+      "microformatDataRenderer": {
+        "urlCanonical": "https://music.youtube.com/watch?v=0qanF-91aJo",
+        "title": "Paranoid",
+        "description": "Black Sabbath",
+        "thumbnail": {
+          "thumbnails": [
+            {
+              "url": "https://i.ytimg.com/vi/0qanF-91aJo/hqdefault.jpg?sqp=-oaymwEmCOADEOgC8quKqQMa8AEB-AHUBoAC4AOKAgwIABABGF4gXiheMA8=&rs=AOn4CLCdSF5kB2KmaG2rg0MNDxewaoWYqg",
+              "width": 480,
+              "height": 360
+            }
+          ]
+        },
+        "siteName": "YouTube Music",
+        "appName": "YouTube Music",
+        "androidPackage": "com.google.android.apps.youtube.music",
+        "iosAppStoreId": "1017492454",
+        "iosAppArguments": "https://music.youtube.com/watch?v=0qanF-91aJo",
+        "ogType": "video.other",
+        "urlApplinksIos": "vnd.youtube.music://music.youtube.com/watch?v=0qanF-91aJo&feature=applinks",
+        "urlApplinksAndroid": "vnd.youtube.music://music.youtube.com/watch?v=0qanF-91aJo&feature=applinks",
+        "urlTwitterIos": "vnd.youtube.music://music.youtube.com/watch?v=0qanF-91aJo&feature=twitter-deep-link",
+        "urlTwitterAndroid": "vnd.youtube.music://music.youtube.com/watch?v=0qanF-91aJo&feature=twitter-deep-link",
+        "twitterCardType": "summary",
+        "twitterSiteHandle": "@YouTubeMusic",
+        "schemaDotOrgType": "http://schema.org/VideoObject",
+        "noindex": false,
+        "unlisted": false,
+        "paid": false,
+        "familySafe": true,
+        "tags": [
+          "ozzy",
+          "osbourne",
+          "tony",
+          "iommi",
+          "geezer",
+          "butler",
+          "bill ward",
+          "paranoid",
+          "belgium",
+          "70's",
+          "1970",
+          "black sabbath"
+        ],
+        "availableCountries": [
+          "AD",
+          "AE",
+          "AF",
+          "AG",
+          "AI",
+          "AL",
+          "AM",
+          "AO",
+          "AQ",
+          "AR",
+          "AS",
+          "AT",
+          "AU",
+          "AW",
+          "AX",
+          "AZ",
+          "BA",
+          "BB",
+          "BD",
+          "BE",
+          "BF",
+          "BG",
+          "BH",
+          "BI",
+          "BJ",
+          "BL",
+          "BM",
+          "BN",
+          "BO",
+          "BQ",
+          "BR",
+          "BS",
+          "BT",
+          "BV",
+          "BW",
+          "BY",
+          "BZ",
+          "CA",
+          "CC",
+          "CD",
+          "CF",
+          "CG",
+          "CH",
+          "CI",
+          "CK",
+          "CL",
+          "CM",
+          "CN",
+          "CO",
+          "CR",
+          "CU",
+          "CV",
+          "CW",
+          "CX",
+          "CY",
+          "CZ",
+          "DE",
+          "DJ",
+          "DK",
+          "DM",
+          "DO",
+          "DZ",
+          "EC",
+          "EE",
+          "EG",
+          "EH",
+          "ER",
+          "ES",
+          "ET",
+          "FI",
+          "FJ",
+          "FK",
+          "FM",
+          "FO",
+          "FR",
+          "GA",
+          "GB",
+          "GD",
+          "GE",
+          "GF",
+          "GG",
+          "GH",
+          "GI",
+          "GL",
+          "GM",
+          "GN",
+          "GP",
+          "GQ",
+          "GR",
+          "GS",
+          "GT",
+          "GU",
+          "GW",
+          "GY",
+          "HK",
+          "HM",
+          "HN",
+          "HR",
+          "HT",
+          "HU",
+          "ID",
+          "IE",
+          "IL",
+          "IM",
+          "IN",
+          "IO",
+          "IQ",
+          "IR",
+          "IS",
+          "IT",
+          "JE",
+          "JM",
+          "JO",
+          "JP",
+          "KE",
+          "KG",
+          "KH",
+          "KI",
+          "KM",
+          "KN",
+          "KP",
+          "KR",
+          "KW",
+          "KY",
+          "KZ",
+          "LA",
+          "LB",
+          "LC",
+          "LI",
+          "LK",
+          "LR",
+          "LS",
+          "LT",
+          "LU",
+          "LV",
+          "LY",
+          "MA",
+          "MC",
+          "MD",
+          "ME",
+          "MF",
+          "MG",
+          "MH",
+          "MK",
+          "ML",
+          "MM",
+          "MN",
+          "MO",
+          "MP",
+          "MQ",
+          "MR",
+          "MS",
+          "MT",
+          "MU",
+          "MV",
+          "MW",
+          "MX",
+          "MY",
+          "MZ",
+          "NA",
+          "NC",
+          "NE",
+          "NF",
+          "NG",
+          "NI",
+          "NL",
+          "NO",
+          "NP",
+          "NR",
+          "NU",
+          "NZ",
+          "OM",
+          "PA",
+          "PE",
+          "PF",
+          "PG",
+          "PH",
+          "PK",
+          "PL",
+          "PM",
+          "PN",
+          "PR",
+          "PS",
+          "PT",
+          "PW",
+          "PY",
+          "QA",
+          "RE",
+          "RO",
+          "RS",
+          "RU",
+          "RW",
+          "SA",
+          "SB",
+          "SC",
+          "SD",
+          "SE",
+          "SG",
+          "SH",
+          "SI",
+          "SJ",
+          "SK",
+          "SL",
+          "SM",
+          "SN",
+          "SO",
+          "SR",
+          "SS",
+          "ST",
+          "SV",
+          "SX",
+          "SY",
+          "SZ",
+          "TC",
+          "TD",
+          "TF",
+          "TG",
+          "TH",
+          "TJ",
+          "TK",
+          "TL",
+          "TM",
+          "TN",
+          "TO",
+          "TR",
+          "TT",
+          "TV",
+          "TW",
+          "TZ",
+          "UA",
+          "UG",
+          "UM",
+          "US",
+          "UY",
+          "UZ",
+          "VA",
+          "VC",
+          "VE",
+          "VG",
+          "VI",
+          "VN",
+          "VU",
+          "WF",
+          "WS",
+          "YE",
+          "YT",
+          "ZA",
+          "ZM",
+          "ZW"
+        ],
+        "pageOwnerDetails": {
+          "name": "Black Sabbath",
+          "externalChannelId": "UCrx-X329UKv0Y06VhfpFVvw",
+          "youtubeProfileUrl": "http://www.youtube.com/@blacksabbath"
+        },
+        "videoDetails": {
+          "externalVideoId": "0qanF-91aJo",
+          "durationSeconds": "172",
+          "durationIso8601": "PT2M52S"
+        },
+        "linkAlternates": [
+          {
+            "hrefUrl": "android-app://com.google.android.youtube/http/youtube.com/watch?v=0qanF-91aJo"
+          },
+          {
+            "hrefUrl": "ios-app://544007664/http/youtube.com/watch?v=0qanF-91aJo"
+          },
+          {
+            "hrefUrl": "https://www.youtube.com/oembed?format=json&url=https%3A%2F%2Fmusic.youtube.com%2Fwatch%3Fv%3D0qanF-91aJo",
+            "title": "BLACK SABBATH - \"Paranoid\" (Official Video)",
+            "alternateType": "application/json+oembed"
+          },
+          {
+            "hrefUrl": "https://www.youtube.com/oembed?format=xml&url=https%3A%2F%2Fmusic.youtube.com%2Fwatch%3Fv%3D0qanF-91aJo",
+            "title": "BLACK SABBATH - \"Paranoid\" (Official Video)",
+            "alternateType": "text/xml+oembed"
+          }
+        ],
+        "viewCount": "401094317",
+        "publishDate": "2016-02-17T16:10:59-08:00",
+        "category": "Entertainment",
+        "uploadDate": "2016-02-17T16:10:59-08:00"
+      }
+    },
+    "cards": {
+      "cardCollectionRenderer": {
+        "cards": [
+          {
+            "cardRenderer": {
+              "teaser": {
+                "simpleCardTeaserRenderer": {
+                  "message": {
+                    "runs": [
+                      {
+                        "text": "Suggested: Chris Isaak - Wicked Game (Live) • TopPop"
+                      }
+                    ]
+                  },
+                  "trackingParams": "CAcQ0DYiEwiZv9Dr9oeXAxU7g_QHHeS_Bmo=",
+                  "prominent": true,
+                  "logVisibilityUpdates": true
+                }
+              },
+              "content": {
+                "videoInfoCardContentRenderer": {
+                  "videoThumbnail": {
+                    "thumbnails": [
+                      {
+                        "url": "https://i.ytimg.com/vi/Z4eQncLksbM/mqdefault.jpg",
+                        "width": 320,
+                        "height": 180
+                      },
+                      {
+                        "url": "https://i.ytimg.com/vi/Z4eQncLksbM/hqdefault.jpg?sqp=-oaymwEXCJADEOABSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLDRTNf9-9obbckXaLbm6t427HKYrQ",
+                        "width": 400,
+                        "height": 224
+                      },
+                      {
+                        "url": "https://i.ytimg.com/vi/Z4eQncLksbM/hq720.jpg?sqp=-oaymwEXCKAGEMIDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAsBvOUbuN7imsKFyje7hhVt2aw2w",
+                        "width": 800,
+                        "height": 450
+                      },
+                      {
+                        "url": "https://i.ytimg.com/vi/Z4eQncLksbM/hq720.jpg",
+                        "width": 1280,
+                        "height": 720
+                      }
+                    ]
+                  },
+                  "lengthString": {
+                    "runs": [
+                      {
+                        "text": "2:45"
+                      }
+                    ],
+                    "accessibility": {
+                      "accessibilityData": {
+                        "label": "2 minutes, 45 seconds"
+                      }
+                    }
+                  },
+                  "videoTitle": {
+                    "runs": [
+                      {
+                        "text": "Chris Isaak - Wicked Game (Live) • TopPop"
+                      }
+                    ]
+                  },
+                  "channelName": {
+                    "runs": [
+                      {
+                        "text": "by TopPop"
+                      }
+                    ]
+                  },
+                  "viewCountText": {
+                    "runs": [
+                      {
+                        "text": "39,288 views"
+                      }
+                    ]
+                  },
+                  "action": {
+                    "clickTrackingParams": "CAYQ1TYiEwiZv9Dr9oeXAxU7g_QHHeS_BmoyBHMybHBImtHV-_7iqdPSAcoBBH7gJWo=",
+                    "watchEndpoint": {
+                      "videoId": "Z4eQncLksbM",
+                      "ustreamerConfig": "GgIIAg=="
+                    }
+                  },
+                  "trackingParams": "CAYQ1TYiEwiZv9Dr9oeXAxU7g_QHHeS_Bmo=",
+                  "customMessage": {
+                    "runs": [
+                      {
+                        "text": "Suggested by ODMedia Music Network"
+                      }
+                    ]
+                  }
+                }
+              },
+              "cueRanges": [
+                {
+                  "startCardActiveMs": "142000",
+                  "endCardActiveMs": "147000",
+                  "teaserDurationMs": "11000",
+                  "iconAfterTeaserMs": "5000"
+                }
+              ],
+              "icon": {
+                "infoCardIconRenderer": {
+                  "trackingParams": "CAUQsJcBIhMImb_Q6_aHlwMVO4P0Bx3kvwZq"
+                }
+              },
+              "trackingParams": "CAQQpoICGAAiEwiZv9Dr9oeXAxU7g_QHHeS_Bmo=",
+              "cardId": "pfc:Z4eQncLksbM",
+              "feature": "s2lp"
+            }
+          }
+        ],
+        "headerText": {
+          "runs": [
+            {
+              "text": "More info"
+            }
+          ]
+        },
+        "icon": {
+          "infoCardIconRenderer": {
+            "trackingParams": "CAMQsJcBIhMImb_Q6_aHlwMVO4P0Bx3kvwZq"
+          }
+        },
+        "closeButton": {
+          "infoCardIconRenderer": {
+            "trackingParams": "CAIQsZcBIhMImb_Q6_aHlwMVO4P0Bx3kvwZq"
+          }
+        },
+        "trackingParams": "CAEQwjciEwiZv9Dr9oeXAxU7g_QHHeS_Bmo=",
+        "allowTeaserDismiss": true,
+        "logIconVisibilityUpdates": true
+      }
+    },
+    "trackingParams": "CAAQu2kiEwiZv9Dr9oeXAxU7g_QHHeS_BmrKAQR-4CVq",
+    "adBreakHeartbeatParams": "Q0FBJTNE"
+  },
+  "raw_response_text": null,
+  "exception": null,
+  "capture_note": "Response captured inside _send_request immediately after the HTTP response, before ytmusicapi high-level parsing."
+}

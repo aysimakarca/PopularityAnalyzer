@@ -1,0 +1,397 @@
+{
+  "sequence": 1,
+  "endpoint": "account/account_menu",
+  "additional_params": "",
+  "started_at_utc": "2026-09-24T19:15:00+00:00",
+  "finished_at_utc": "2026-09-24T19:15:00+00:00",
+  "http_status_code": 200,
+  "http_reason": "OK",
+  "request_body_before_context": {},
+  "request_body_after_call": {
+    "context": {
+      "client": {
+        "clientName": "WEB_REMIX",
+        "clientVersion": "1.20260924.01.00",
+        "hl": "en"
+      },
+      "user": {}
+    }
+  },
+  "response": {
+    "responseContext": {
+      "serviceTrackingParams": [
+        {
+          "service": "CSI",
+          "params": [
+            {
+              "key": "c",
+              "value": "WEB_REMIX"
+            },
+            {
+              "key": "cver",
+              "value": "1.20260924.01.00"
+            },
+            {
+              "key": "yt_li",
+              "value": "1"
+            },
+            {
+              "key": "GetAccountMenu_rid",
+              "value": "0x239c4bec4e2e5925"
+            }
+          ]
+        },
+        {
+          "service": "GFEEDBACK",
+          "params": [
+            {
+              "key": "logged_in",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "service": "ECATCHER",
+          "params": [
+            {
+              "key": "client.version",
+              "value": "1.20000101"
+            },
+            {
+              "key": "client.name",
+              "value": "WEB_REMIX"
+            }
+          ]
+        }
+      ],
+      "responseId": "IhMIgZib1PaHlwMVUNpPCB3f9R3w"
+    },
+    "actions": [
+      {
+        "clickTrackingParams": "CAAQpbsIIhMIgZib1PaHlwMVUNpPCB3f9R3wygEEfuAlag==",
+        "openPopupAction": {
+          "popup": {
+            "multiPageMenuRenderer": {
+              "header": {
+                "activeAccountHeaderRenderer": {
+                  "accountName": {
+                    "runs": [
+                      {
+                        "text": "Aysima karcaaltıncaba"
+                      }
+                    ]
+                  },
+                  "accountPhoto": {
+                    "thumbnails": [
+                      {
+                        "url": "https://yt3.ggpht.com/yti/ANjgQV-AcKdqdIPeOYucw7TEJH93gQJq6lZZkE2g02xgU5-RMEDk=s108-c-k-c0x00ffffff-no-rj",
+                        "width": 108,
+                        "height": 108
+                      }
+                    ]
+                  },
+                  "settingsEndpoint": {
+                    "clickTrackingParams": "CA4QydkGIhMIgZib1PaHlwMVUNpPCB3f9R3wygEEfuAlag==",
+                    "applicationSettingsEndpoint": {
+                      "hack": true
+                    }
+                  },
+                  "manageAccountTitle": {
+                    "runs": [
+                      {
+                        "text": "Manage your Google Account",
+                        "navigationEndpoint": {
+                          "clickTrackingParams": "CA4QydkGIhMIgZib1PaHlwMVUNpPCB3f9R3wygEEfuAlag==",
+                          "urlEndpoint": {
+                            "url": "https://myaccount.google.com/u/0/?utm_source=YouTubeWeb&tab=rk&utm_medium=act&gar=WzgwLCIyMzMzODciXQ&sl=true&tab=rk&hl=en",
+                            "target": "TARGET_NEW_WINDOW"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "trackingParams": "CA4QydkGIhMIgZib1PaHlwMVUNpPCB3f9R3w",
+                  "channelHandle": {
+                    "runs": [
+                      {
+                        "text": "@aysimakarcaaltncaba4523"
+                      }
+                    ]
+                  }
+                }
+              },
+              "sections": [
+                {
+                  "multiPageMenuSectionRenderer": {
+                    "items": [
+                      {
+                        "compactLinkRenderer": {
+                          "icon": {
+                            "iconType": "ACCOUNT_BOX"
+                          },
+                          "title": {
+                            "runs": [
+                              {
+                                "text": "Your channel"
+                              }
+                            ]
+                          },
+                          "navigationEndpoint": {
+                            "clickTrackingParams": "CA0QwJ4JGAAiEwiBmJvU9oeXAxVQ2k8IHd_1HfDKAQR-4CVq",
+                            "browseEndpoint": {
+                              "browseId": "UC2n1ZlPHDI75bGPdpMvP7uw",
+                              "canonicalBaseUrl": "/@aysimakarcaaltncaba4523",
+                              "browseEndpointContextSupportedConfigs": {
+                                "browseEndpointContextMusicConfig": {
+                                  "pageType": "MUSIC_PAGE_TYPE_USER_CHANNEL"
+                                }
+                              }
+                            }
+                          },
+                          "trackingParams": "CA0QwJ4JGAAiEwiBmJvU9oeXAxVQ2k8IHd_1HfA="
+                        }
+                      },
+                      {
+                        "compactLinkRenderer": {
+                          "icon": {
+                            "iconType": "MONETIZATION_ON"
+                          },
+                          "title": {
+                            "runs": [
+                              {
+                                "text": "Paid memberships"
+                              }
+                            ]
+                          },
+                          "navigationEndpoint": {
+                            "clickTrackingParams": "CAwQg_ACGAEiEwiBmJvU9oeXAxVQ2k8IHd_1HfDKAQR-4CVq",
+                            "browseEndpoint": {
+                              "browseId": "FEmemberships_and_purchases",
+                              "params": "kgMDmAEK"
+                            }
+                          },
+                          "trackingParams": "CAwQg_ACGAEiEwiBmJvU9oeXAxVQ2k8IHd_1HfA="
+                        }
+                      },
+                      {
+                        "compactLinkRenderer": {
+                          "icon": {
+                            "iconType": "SWITCH_ACCOUNTS"
+                          },
+                          "title": {
+                            "runs": [
+                              {
+                                "text": "Switch account"
+                              }
+                            ]
+                          },
+                          "trackingParams": "CAsQ7KgHGAIiEwiBmJvU9oeXAxVQ2k8IHd_1HfA=",
+                          "secondaryIcon": {
+                            "iconType": "CHEVRON_RIGHT"
+                          },
+                          "serviceEndpoint": {
+                            "clickTrackingParams": "CAsQ7KgHGAIiEwiBmJvU9oeXAxVQ2k8IHd_1HfDKAQR-4CVq",
+                            "getAccountSwitcherEndpoint": {
+                              "hack": true
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "compactLinkRenderer": {
+                          "icon": {
+                            "iconType": "EXIT_TO_APP"
+                          },
+                          "title": {
+                            "runs": [
+                              {
+                                "text": "Sign out"
+                              }
+                            ]
+                          },
+                          "navigationEndpoint": {
+                            "clickTrackingParams": "CAoQpIEEGAMiEwiBmJvU9oeXAxVQ2k8IHd_1HfDKAQR-4CVq",
+                            "signOutEndpoint": {
+                              "hack": true
+                            }
+                          },
+                          "trackingParams": "CAoQpIEEGAMiEwiBmJvU9oeXAxVQ2k8IHd_1HfA="
+                        }
+                      }
+                    ],
+                    "trackingParams": "CAkQ968BGAAiEwiBmJvU9oeXAxVQ2k8IHd_1HfA="
+                  }
+                },
+                {
+                  "multiPageMenuSectionRenderer": {
+                    "items": [
+                      {
+                        "compactLinkRenderer": {
+                          "icon": {
+                            "iconType": "CLOUD_UPLOAD"
+                          },
+                          "title": {
+                            "runs": [
+                              {
+                                "text": "Upload music"
+                              }
+                            ]
+                          },
+                          "trackingParams": "CAgQp0wYACITCIGYm9T2h5cDFVDaTwgd3_Ud8A==",
+                          "serviceEndpoint": {
+                            "clickTrackingParams": "CAgQp0wYACITCIGYm9T2h5cDFVDaTwgd3_Ud8MoBBH7gJWo=",
+                            "signalServiceEndpoint": {
+                              "signal": "CLIENT_SIGNAL",
+                              "actions": [
+                                {
+                                  "clickTrackingParams": "CAgQp0wYACITCIGYm9T2h5cDFVDaTwgd3_Ud8MoBBH7gJWo=",
+                                  "signalAction": {
+                                    "signal": "OPEN_FILE_PICKER"
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "compactLinkRenderer": {
+                          "icon": {
+                            "iconType": "WATCH_HISTORY"
+                          },
+                          "title": {
+                            "runs": [
+                              {
+                                "text": "History"
+                              }
+                            ]
+                          },
+                          "navigationEndpoint": {
+                            "clickTrackingParams": "CAcQ5KgHGAEiEwiBmJvU9oeXAxVQ2k8IHd_1HfDKAQR-4CVq",
+                            "browseEndpoint": {
+                              "browseId": "FEmusic_history"
+                            }
+                          },
+                          "trackingParams": "CAcQ5KgHGAEiEwiBmJvU9oeXAxVQ2k8IHd_1HfA="
+                        }
+                      },
+                      {
+                        "compactLinkRenderer": {
+                          "icon": {
+                            "iconType": "SETTINGS"
+                          },
+                          "title": {
+                            "runs": [
+                              {
+                                "text": "Settings"
+                              }
+                            ]
+                          },
+                          "navigationEndpoint": {
+                            "clickTrackingParams": "CAYQ6qgHGAIiEwiBmJvU9oeXAxVQ2k8IHd_1HfDKAQR-4CVq",
+                            "applicationSettingsEndpoint": {
+                              "hack": true
+                            }
+                          },
+                          "trackingParams": "CAYQ6qgHGAIiEwiBmJvU9oeXAxVQ2k8IHd_1HfA="
+                        }
+                      },
+                      {
+                        "compactLinkRenderer": {
+                          "icon": {
+                            "iconType": "PRIVACY_INFO"
+                          },
+                          "title": {
+                            "runs": [
+                              {
+                                "text": "Terms & privacy policy"
+                              }
+                            ]
+                          },
+                          "navigationEndpoint": {
+                            "clickTrackingParams": "CAUQp0wYAyITCIGYm9T2h5cDFVDaTwgd3_Ud8MoBBH7gJWo=",
+                            "urlEndpoint": {
+                              "url": "https://www.youtube.com/t/terms?gl=NO&chromeless=1"
+                            }
+                          },
+                          "trackingParams": "CAUQp0wYAyITCIGYm9T2h5cDFVDaTwgd3_Ud8A=="
+                        }
+                      },
+                      {
+                        "compactLinkRenderer": {
+                          "icon": {
+                            "iconType": "HELP"
+                          },
+                          "title": {
+                            "runs": [
+                              {
+                                "text": "Help"
+                              }
+                            ]
+                          },
+                          "trackingParams": "CAQQ46gHGAQiEwiBmJvU9oeXAxVQ2k8IHd_1HfA=",
+                          "serviceEndpoint": {
+                            "clickTrackingParams": "CAQQ46gHGAQiEwiBmJvU9oeXAxVQ2k8IHd_1HfDKAQR-4CVq",
+                            "signalServiceEndpoint": {
+                              "signal": "CLIENT_SIGNAL",
+                              "actions": [
+                                {
+                                  "clickTrackingParams": "CAQQ46gHGAQiEwiBmJvU9oeXAxVQ2k8IHd_1HfDKAQR-4CVq",
+                                  "signalAction": {
+                                    "signal": "HELP"
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "compactLinkRenderer": {
+                          "icon": {
+                            "iconType": "FEEDBACK"
+                          },
+                          "title": {
+                            "runs": [
+                              {
+                                "text": "Send feedback"
+                              }
+                            ]
+                          },
+                          "trackingParams": "CAMQ4agHGAUiEwiBmJvU9oeXAxVQ2k8IHd_1HfA=",
+                          "serviceEndpoint": {
+                            "clickTrackingParams": "CAMQ4agHGAUiEwiBmJvU9oeXAxVQ2k8IHd_1HfDKAQR-4CVq",
+                            "signalServiceEndpoint": {
+                              "signal": "CLIENT_SIGNAL",
+                              "actions": [
+                                {
+                                  "clickTrackingParams": "CAMQ4agHGAUiEwiBmJvU9oeXAxVQ2k8IHd_1HfDKAQR-4CVq",
+                                  "sendFeedbackAction": {
+                                    "bucket": "Kevlar"
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    ],
+                    "trackingParams": "CAIQ968BGAEiEwiBmJvU9oeXAxVQ2k8IHd_1HfA="
+                  }
+                }
+              ],
+              "trackingParams": "CAEQ_6sBIhMIgZib1PaHlwMVUNpPCB3f9R3w",
+              "style": "MULTI_PAGE_MENU_STYLE_TYPE_ACCOUNT"
+            }
+          },
+          "popupType": "DROPDOWN",
+          "reusePopup": true
+        }
+      }
+    ],
+    "trackingParams": "CAAQpbsIIhMIgZib1PaHlwMVUNpPCB3f9R3wygEEfuAlag=="
+  },
+  "raw_response_text": null,
+  "exception": null,
+  "capture_note": "Response captured inside _send_request immediately after the HTTP response, before ytmusicapi high-level parsing."
+}
