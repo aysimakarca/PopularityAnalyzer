@@ -68,11 +68,12 @@ PLATFORM_CONFIG = {
     },
 }
 
-TIER_ORDER = ["Low", "Buffer", "Middle", "High"]
+TIER_ORDER = ["Low", "Lower Buffer", "Middle", "Upper Buffer", "High"]
 TIER_COLORS = {
     "Low": "#9ecae1",
-    "Buffer": "#d9d9d9",
+    "Lower Buffer": "#d7e6ed",
     "Middle": "#74c476",
+    "Upper Buffer": "#f4cf83",
     "High": "#ef8a62",
 }
 REQUIRED_COLUMNS = {
@@ -148,6 +149,22 @@ def prepare_platform(
         .str.strip()
         .replace({"": pd.NA, "nan": pd.NA})
     )
+    percentiles = df["_candidate_percentile"]
+    valid = df["popularity_value"].notna()
+    if (valid & ~percentiles.between(0, 100)).any():
+        raise ValueError("Every usable popularity value needs a candidate-pool percentile between 0 and 100.")
+    lower_buffer = percentiles.gt(25) & percentiles.lt(37.5)
+    upper_buffer = percentiles.gt(62.5) & percentiles.lt(75)
+    expected = pd.Series(pd.NA, index=df.index, dtype="string")
+    expected.loc[percentiles.le(25)] = "Low"
+    expected.loc[lower_buffer | upper_buffer] = "Buffer"
+    expected.loc[percentiles.between(37.5, 62.5)] = "Middle"
+    expected.loc[percentiles.ge(75)] = "High"
+    if not df.loc[valid, "_candidate_tier"].equals(expected.loc[valid]):
+        raise ValueError("Stored tiers disagree with the frozen candidate-pool percentile boundaries.")
+    # Preserve the source classification and split its two transition bands for analysis.
+    df.loc[lower_buffer, "_candidate_tier"] = "Lower Buffer"
+    df.loc[upper_buffer, "_candidate_tier"] = "Upper Buffer"
 
     baseline = df.loc[df["_is_baseline"] & df["popularity_value"].notna()]
     if baseline.empty:
@@ -291,11 +308,13 @@ def summarize_user_weeks(
                     if len(valid)
                     else np.nan,
                     **{
-                        f"share_{tier.casefold()}_tier": float((tiers == tier).mean())
+                        f"share_{tier.casefold().replace(' ', '_')}_tier": float((tiers == tier).mean())
                         if len(tiers)
                         else np.nan
                         for tier in TIER_ORDER
                     },
+                    "share_buffer_tier": float(tiers.isin(["Lower Buffer", "Upper Buffer"]).mean())
+                    if len(tiers) else np.nan,
                 }
             )
     return pd.DataFrame(rows)
@@ -399,11 +418,13 @@ def summarize_weeks(
                 if len(valid)
                 else np.nan,
                 **{
-                    f"pooled_share_{tier.casefold()}_tier": float((tiers == tier).mean())
+                    f"pooled_share_{tier.casefold().replace(' ', '_')}_tier": float((tiers == tier).mean())
                     if len(tiers)
                     else np.nan
                     for tier in TIER_ORDER
                 },
+                "pooled_share_buffer_tier": float(tiers.isin(["Lower Buffer", "Upper Buffer"]).mean())
+                if len(tiers) else np.nan,
             }
         )
     return pd.DataFrame(rows)
@@ -564,15 +585,26 @@ def plot_weekly_ecdf(
         if len(x):
             ax.step(x, y, where="post", color=color, linewidth=2, label=f"Week {week}")
     ax.axvline(
-        baseline.median(),
+        math.log10(float(df.loc[df["_is_baseline"], "popularity_value"].median()) + 1),
         color="#333333",
         linestyle="--",
         linewidth=1.2,
         label="Balanced median",
     )
     ax.set_title(f"{df['platform'].iloc[0]} popularity distributions")
-    ax.set_xlabel(f"log10({config['short_metric']} + 1)")
-    ax.set_ylabel("Cumulative share of songs")
+    left, right = ax.get_xlim()
+    tick_values = [10 ** power for power in range(13)]
+    tick_values = [v for v in tick_values if left <= math.log10(v + 1) <= right]
+    def count_label(value: int) -> str:
+        if value >= 1_000_000_000:
+            return f"{value // 1_000_000_000:,} billion"
+        if value >= 1_000_000:
+            return f"{value // 1_000_000:,} million"
+        return f"{value:,}"
+    ax.set_xticks([math.log10(v + 1) for v in tick_values], [count_label(v) for v in tick_values])
+    ax.tick_params(axis="x", labelsize=8)
+    ax.set_xlabel(f"{config['metric'].capitalize()} (logarithmic scale)")
+    ax.set_ylabel("Share of items at or below the popularity value")
     ax.set_ylim(0, 1.02)
     ax.yaxis.set_major_formatter(PercentFormatter(1.0))
     ax.grid(alpha=0.22)
@@ -668,11 +700,11 @@ def plot_user_trajectories(
     )
     axes[1].axhline(0.5, color="#555555", linestyle="--", linewidth=1.2)
     axes[0].set_title("Median popularity percentile for each user playlist")
-    axes[0].set_ylabel("Percentile in original 83-song pool")
+    axes[0].set_ylabel("Percentile in frozen 83-recording pool")
     axes[0].set_ylim(0, 100)
     axes[0].yaxis.set_major_formatter(PercentFormatter(100))
     axes[1].set_title("Share of songs above the balanced-playlist median")
-    axes[1].set_ylabel("Share of songs")
+    axes[1].set_ylabel("Share of recommendation items")
     axes[1].set_xlabel("Recommendation week")
     axes[1].set_ylim(0, 1.02)
     axes[1].yaxis.set_major_formatter(PercentFormatter(1.0))
@@ -778,7 +810,7 @@ def plot_tier_composition(
     fig, ax = plt.subplots(figsize=(9.5, 6), constrained_layout=True)
     bottom = np.zeros(len(data))
     for tier in TIER_ORDER:
-        values = data[f"pooled_share_{tier.casefold()}_tier"].fillna(0).to_numpy()
+        values = data[f"pooled_share_{tier.casefold().replace(' ', '_')}_tier"].fillna(0).to_numpy()
         ax.bar(
             x,
             values,
@@ -795,14 +827,21 @@ def plot_tier_composition(
             label += f"/{int(row['song_count'])}"
         ax.text(position, min(bottom[position] + 0.025, 1.04), label, ha="center", fontsize=8)
     ax.set_title(
-        f"{df['platform'].iloc[0]} popularity tiers using the original 83-song pool"
+        f"{df['platform'].iloc[0]} popularity bands using the frozen 83-recording pool"
     )
-    ax.set_ylabel("Share of songs with a popularity value")
+    ax.set_ylabel("Share of items with available popularity")
     ax.set_ylim(0, 1.08)
     ax.yaxis.set_major_formatter(PercentFormatter(1.0))
     ax.set_xticks(x, data["week_label"])
     ax.grid(axis="y", alpha=0.2)
-    ax.legend(title="Original-pool tier", frameon=False, ncol=4)
+    ax.legend(
+        title="Frozen candidate-pool band",
+        frameon=False,
+        ncol=5,
+        loc="upper center",
+        bbox_to_anchor=(0.5, -0.10),
+        fontsize=8,
+    )
     save_figure(fig, output_dir / "05_original_pool_tier_composition.png", dpi)
 
 

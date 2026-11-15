@@ -1,9 +1,10 @@
-"""Select 30 songs with 10 Low/Middle/High songs on each platform.
+"""Write the realized 30-song playlist with balanced platform tiers.
 
-Run this after both platform result files contain tiers.  The selector finds a
-feasible 3x3 Spotify-tier x YouTube-tier allocation with row and column totals
-of ten.  It prefers six concordant and two discordant songs in every row, but
-adapts when the observed cross-platform cells cannot support that exact plan.
+By default, the song IDs and order come from the Week 1 Spotify snapshot of the
+Heavy Metal MCT playlist that was actually installed on the experiment users.
+Popularity measurements and tiers come from the frozen platform result files.
+Use ``--ignore-realized-playlist`` only to reproduce the earlier algorithmic
+selection instead of the experimental treatment.
 """
 
 from __future__ import annotations
@@ -32,6 +33,18 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--output", type=Path, default=HERE / "final_balanced_playlist.csv")
     parser.add_argument("--max-per-country", type=int, default=2)
+    parser.add_argument(
+        "--realized-playlist",
+        type=Path,
+        default=ROOT / "experiment_results" / "Week1_21July" / "Spotify"
+        / "original_playlist_popularity.csv",
+        help="Snapshot containing the candidate IDs and order actually used in Heavy Metal MCT.",
+    )
+    parser.add_argument(
+        "--ignore-realized-playlist",
+        action="store_true",
+        help="Re-run the original allocation algorithm instead of using the realized playlist.",
+    )
     return parser.parse_args()
 
 
@@ -127,9 +140,20 @@ def write_output(path: Path, rows: list[dict[str, Any]]) -> None:
     ]
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=fields, extrasaction="ignore")
+        writer = csv.DictWriter(
+            handle, fieldnames=fields, extrasaction="ignore", lineterminator="\n"
+        )
         writer.writeheader()
         writer.writerows(rows)
+
+
+def realized_candidate_ids(path: Path) -> list[str]:
+    with path.open("r", encoding="utf-8-sig", newline="") as handle:
+        rows = sorted(csv.DictReader(handle), key=lambda row: int(row["playlist_position"]))
+    candidate_ids = [row["candidate_id"] for row in rows]
+    if len(candidate_ids) != 30 or len(set(candidate_ids)) != 30:
+        raise ValueError(f"Realized playlist must contain 30 unique candidate IDs: {path}")
+    return candidate_ids
 
 
 def main() -> int:
@@ -138,6 +162,7 @@ def main() -> int:
     youtube = read_index(args.youtube)
     common_ids = sorted(set(spotify) & set(youtube))
     cells: list[list[list[dict[str, Any]]]] = [[[] for _ in TIERS] for _ in TIERS]
+    rows_by_id: dict[str, dict[str, Any]] = {}
 
     missing_spotify = 0
     for candidate_id in common_ids:
@@ -157,6 +182,7 @@ def main() -> int:
         row["youtube_percentile"] = yt.get("youtube_percentile", "")
         row["youtube_tier"] = yt.get("youtube_tier", "")
         row["selection_note"] = ""
+        rows_by_id[candidate_id] = row
         cells[TIERS.index(sp["spotify_tier"])][TIERS.index(yt["youtube_tier"])].append(row)
 
     if missing_spotify:
@@ -164,6 +190,35 @@ def main() -> int:
         print("Run the Spotify popularity collector:")
         print("  python3 spotify/metal_popularity.py --refresh-listeners")
         return 2
+
+    if not args.ignore_realized_playlist:
+        realized_ids = realized_candidate_ids(args.realized_playlist)
+        missing = [candidate_id for candidate_id in realized_ids if candidate_id not in rows_by_id]
+        if missing:
+            raise ValueError(
+                "Realized playlist candidates are missing valid frozen metadata: "
+                + ", ".join(missing)
+            )
+        selected = [dict(rows_by_id[candidate_id]) for candidate_id in realized_ids]
+        replacement_notes = {
+            "M076": "Realized Heavy Metal MCT track; replaces planned M055 Traveler - Starbreaker.",
+            "M034": "Realized Heavy Metal MCT track; replaces planned M041 Firewind - World on Fire.",
+        }
+        for row in selected:
+            row["selection_note"] = replacement_notes.get(row["candidate_id"], "")
+        spotify_counts = Counter(row["spotify_tier"] for row in selected)
+        youtube_counts = Counter(row["youtube_tier"] for row in selected)
+        expected = Counter({tier: 10 for tier in TIERS})
+        if spotify_counts != expected or youtube_counts != expected:
+            raise ValueError(
+                f"Realized playlist is not tier-balanced: Spotify={spotify_counts}, "
+                f"YouTube={youtube_counts}"
+            )
+        write_output(args.output, selected)
+        print(f"Used realized playlist order from: {args.realized_playlist}")
+        print(f"Countries represented: {len({row['country'] for row in selected})}")
+        print(f"Output: {args.output}")
+        return 0
 
     available = [[len(cells[row][col]) for col in range(3)] for row in range(3)]
     allocation = feasible_allocation(available)
